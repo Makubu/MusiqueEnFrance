@@ -71,7 +71,7 @@ function hideMapInfo(event) {
 console.log(window.location.pathname);
 console.log(window.location.href);
 
-dataP = d3.csv("/small_data.csv"); // dataP pour data Promise
+dataP = d3.csv("./small_data.csv"); // dataP pour data Promise
 
 //To keep track of the listeners
 let currentListners = {};
@@ -205,7 +205,6 @@ function displayGenreByRegion(genre) {
             document.querySelectorAll(".is-clicked").forEach(function (path) {
                 path.classList.remove("is-clicked");
             })
-            console.log(genre);
             this.classList.add('is-clicked');
 
             let region = getRegionName(id);
