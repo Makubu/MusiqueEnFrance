@@ -1,0 +1,97 @@
+/*
+Tout le style est dans ce CSS à l'exeption de la coloration des région qui se trouve changée par le js en
+fonciton de la data qu'on affiche sur la map.
+ */
+
+
+:root {
+    --base: #F98888;
+    --stroke: #FFFFFF;
+    --active-stroke: #604545;
+    --clicked-stroke: #402525;
+    --active-color: #f43838;
+    --transition-time: 0.4s;
+}
+
+.map_image{
+    float: left;
+    height: 500px;
+    width: 500px;
+}
+
+.map_image svg{
+    height: inherit;
+    width: inherit;
+}
+
+.map_chart{
+    width: 50%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: right;
+}
+
+
+.map_legend, .legendTitle{
+    display: flex;
+    justify-content: right;
+
+    font-style: normal;
+    font-variant-ligatures: normal;
+    font-variant-caps: normal;
+    font-variant-numeric: normal;
+    font-variant-east-asian: normal;
+    font-weight: 600;
+    font-stretch: normal;
+    font-size: 12px;
+    line-height: normal;
+    font-family: 'MarrSans', Helvetica, arial, serif;
+
+}
+
+
+/* Don't touch*/
+.map_image path{
+    fill: var(--base);
+    stroke: var(--stroke);
+    stroke-width: 1px;
+    transition : fill var(--transition-time);
+}
+
+/* Don't touch*/
+.map_image path.is-active{
+    fill: var(--active-color);
+    stroke: var(--active-stroke);
+    stroke-width: 2px;
+    transition : fill var(--transition-time);
+    /*
+    transform: scale(0.9);
+    transform-origin: 70% 70%;
+    transform-box: fill-box;
+     */
+}
+
+/* Don't touch*/
+.map_image path.is-clicked{
+    fill: var(--active-color);
+    stroke: var(--clicked-stroke);
+    stroke-width: 3px;
+    transition : fill var(--transition-time);
+    /*
+    transform: scale(0.9);
+    transform-origin: 70% 70%;
+    transform-box: fill-box;
+     */
+}
+
+
+
+
+@font-face {
+    font-family: "MarrSans";
+    src:
+    url("../fonts/MarrSans-Regular-Web.woff2") format("woff2"),
+    url("../fonts/MarrSans-Semibold-Web.woff2") format("woff2"),
+    url("../fonts/MarrSans-Medium-Web.woff2") format("woff2");
+}
+

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="Capa_1"
+   x="0px"
+   y="0px"
+   viewBox="0 0 163.90865 60"
+   xml:space="preserve"
+   sodipodi:docname="play-button-svgrepo-com.svg"
+   width="163.90865"
+   height="60"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"><metadata
+   id="metadata43"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+   id="defs41"><rect
+     x="60.033367"
+     y="0.21213204"
+     width="119.5364"
+     height="59.396969"
+     id="rect870" /></defs><sodipodi:namedview
+   pagecolor="#ffffff"
+   bordercolor="#666666"
+   borderopacity="1"
+   objecttolerance="10"
+   gridtolerance="10"
+   guidetolerance="10"
+   inkscape:pageopacity="0"
+   inkscape:pageshadow="2"
+   inkscape:window-width="1920"
+   inkscape:window-height="986"
+   id="namedview39"
+   showgrid="false"
+   inkscape:zoom="2.3570226"
+   inkscape:cx="94.840475"
+   inkscape:cy="50.078374"
+   inkscape:window-x="-11"
+   inkscape:window-y="-11"
+   inkscape:window-maximized="1"
+   inkscape:current-layer="Capa_1"
+   fit-margin-top="0"
+   fit-margin-left="0"
+   fit-margin-right="0"
+   fit-margin-bottom="0" />
+<g
+   id="g6">
+	<path
+   d="m 45.563,29.174 -22,-15 C 23.256,13.966 22.86,13.943 22.532,14.116 22.205,14.289 22,14.629 22,15 v 30 c 0,0.371 0.205,0.711 0.533,0.884 C 22.679,45.962 22.84,46 23,46 c 0.197,0 0.394,-0.059 0.563,-0.174 l 22,-15 C 45.836,30.64 46,30.331 46,30 46,29.669 45.836,29.36 45.563,29.174 Z M 24,43.107 V 16.893 L 43.225,30 Z"
+   id="path2" />
+	<path
+   d="M 30,0 C 13.458,0 0,13.458 0,30 0,46.542 13.458,60 30,60 46.542,60 60,46.542 60,30 60,13.458 46.542,0 30,0 Z m 0,58 C 14.561,58 2,45.439 2,30 2,14.561 14.561,2 30,2 45.439,2 58,14.561 58,30 58,45.439 45.439,58 30,58 Z"
+   id="path4" />
+</g>
+<g
+   id="g8"
+   transform="translate(0,-7.2723746)">
+</g>
+<g
+   id="g10"
+   transform="translate(0,-7.2723746)">
+</g>
+<g
+   id="g12"
+   transform="translate(0,-7.2723746)">
+</g>
+<g
+   id="g14"
+   transform="translate(0,-7.2723746)">
+</g>
+<g
+   id="g16"
+   transform="translate(0,-7.2723746)">
+</g>
+<g
+   id="g18"
+   transform="translate(0,-7.2723746)">
+</g>
+<g
+   id="g20"
+   transform="translate(0,-7.2723746)">
+</g>
+<g
+   id="g22"
+   transform="translate(0,-7.2723746)">
+</g>
+<g
+   id="g24"
+   transform="translate(0,-7.2723746)">
+</g>
+<g
+   id="g26"
+   transform="translate(0,-7.2723746)">
+</g>
+<g
+   id="g28"
+   transform="translate(0,-7.2723746)">
+</g>
+<g
+   id="g30"
+   transform="translate(0,-7.2723746)">
+</g>
+<g
+   id="g32"
+   transform="translate(0,-7.2723746)">
+</g>
+<g
+   id="g34"
+   transform="translate(0,-7.2723746)">
+</g>
+<g
+   id="g36"
+   transform="translate(0,-7.2723746)">
+</g>
+<text
+   xml:space="preserve"
+   id="text868"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:Georgia;-inkscape-font-specification:Georgia;text-align:center;letter-spacing:0.09px;white-space:pre;shape-inside:url(#rect870);fill:#000000;fill-opacity:1;stroke:none"
+   x="0"
+   y="0"
+   transform="matrix(1.2271893,0,0,1.2271893,-30.434566,-1.318425)"><tspan
+     x="81.824961"
+     y="36.301701"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Georgia;-inkscape-font-specification:Georgia;text-align:center;text-anchor:middle">Play</tspan></tspan></text></svg>

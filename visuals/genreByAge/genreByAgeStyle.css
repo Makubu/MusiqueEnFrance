@@ -1,0 +1,13 @@
+/* A modifier pour integration */
+.line_chart_age_genre{
+    height: 700px;
+    width: 100%;
+}
+
+@font-face {
+    font-family: "MarrSans";
+    src:
+            url("../fonts/MarrSans-Regular-Web.woff2") format("woff2"),
+            url("../fonts/MarrSans-Semibold-Web.woff2") format("woff2"),
+            url("../fonts/MarrSans-Medium-Web.woff2") format("woff2");
+}
