@@ -1,47 +1,47 @@
-const map = document.querySelector('#map');
-const paths = map.querySelectorAll('.map_image path');
+const map_mapAppCSP = document.querySelector('#map');
+const paths_mapAppCSP = map_mapAppCSP.querySelectorAll('.map_image path');
 
-const color1 = "rgb(244, 220, 213)"; //color for map: interpolation between color1 and color2
-const color2 = "rgb(244, 56, 56)";
+const color1_mapAppCSP = "rgb(244, 220, 213)"; //color for map: interpolation between color1 and color2
+const color2_mapAppCSP = "rgb(244, 56, 56)";
 
 //Color of the bars !!!!!!!!!!!!!!!!!!!!!!!
-const chartColor = '#CBCBCB';
+const chartColor_mapAppCSP = '#CBCBCB';
 
-const axesLegend = {
+const axesLegend_mapAppCSP = {
     fontFamily: "'MarrSans', Helvetica, arial, serif",
     fontStyle: "normal",
     fontColor: 'black',
     fontSize: 15,
 };
 
-const axesTicks = {
+const axesTicks_mapAppCSP = {
     fontFamily: "'MarrSans', Helvetica, arial, serif",
     fontStyle: "normal",
     fontColor: 'black',
     fontSize: 13,
 };
 
-const title = {
+const title_mapAppCSP = {
     fontFamily: "'MarrSans', Helvetica, arial, serif",
     fontStyle: "normal",
     fontColor: 'black',
     fontSize: 15,
 };
 
-paths.forEach(function (path) {
+paths_mapAppCSP.forEach(function (path) {
     path.addEventListener('mouseenter', function () {
         let id = this.id;
         //document.querySelector('#list-'+id).classList.add('is-active');
         this.classList.add('is-active');
         d3.select(this).raise()
-        let clickedPath = map.querySelectorAll('.is-clicked');
+        let clickedPath = map_mapAppCSP.querySelectorAll('.is-clicked');
         clickedPath.forEach(function (path_) {
             d3.select(path_).raise();
         })
     })
 })
 
-paths.forEach(function (path) {
+paths_mapAppCSP.forEach(function (path) {
     path.addEventListener('mouseleave', function () {
         let id = this.id;
         //document.querySelector('#list-'+id).classList.remove('is-active');
@@ -58,26 +58,27 @@ function hideMapInfo(event) {
 
         let map_inf = document.querySelector('#chart_div');
         map_inf.innerHTML = "<canvas id=\"bar_chart_canvas\" width=\"400\" height=\"400\"></canvas>";
-
+        let charts_div = document.getElementById("mapcharts");
+        charts_div.removeChild(document.getElementById("additional_chart"));
         })
     }
 }
 
 
 //Import data
-dataP = d3.csv("http://localhost:8000/small_data.csv"); // dataP pour data Promise
+let dataP_mapAppCSP = d3.csv("http://localhost:8000/small_data.csv"); // dataP pour data Promise
 
 //To keep track of the listeners
-let currentListners = {};
+let currentListners_mapAppCSP = {};
 
 //Function principale
-function displayGenreByRegion(genre) {
+function displayGenreByRegion_mapAppCSP(genre) {
     let maxRatio = 0;
     let minRatio = 1;
-    paths.forEach(function (path) {
+    paths_mapAppCSP.forEach(function (path) {
         const id = path.id;
         let callback = getRegion(id);
-        dataP.then(callback).then(function (csv) {
+        dataP_mapAppCSP.then(callback).then(function (csv) {
             let totalPopReg = csv.length;
             let genrePopulation = getGenre(genre)(csv).length;
             let ratio = genrePopulation / totalPopReg;
@@ -94,13 +95,13 @@ function displayGenreByRegion(genre) {
 
 
     let max_ratio_reg = 0;
-    paths.forEach(function (path, index) {
+    paths_mapAppCSP.forEach(function (path, index) {
         const id = path.id;
         let callback = getRegion(id);
-        dataP.then(callback).then(function (csv_reg) {
+        dataP_mapAppCSP.then(callback).then(function (csv_reg) {
             let totalPopReg = csv_reg.length;
             let genrePopulation = getGenre(genre)(csv_reg).length;
-            let getD3Color = d3.interpolate(color1, color2);
+            let getD3Color = d3.interpolate(color1_mapAppCSP, color2_mapAppCSP);
             let ratio = genrePopulation / totalPopReg;
             ratio = ratio - minRatio;
             ratio = ratio / (maxRatio - minRatio);
@@ -176,8 +177,21 @@ function displayGenreByRegion(genre) {
         })
     })
 
-    paths.forEach(function (path) {
+    paths_mapAppCSP.forEach(function (path) {
         function listenerFunction () {
+
+            let charts_div = document.getElementById("mapcharts");
+            if(insight_etudie != 1){
+                console.log("ok");
+                return;
+            }
+            let map_chart_div = document.createElement("div");
+            let sdiv = document.createElement("div");
+            map_chart_div.class = "map_chart";
+            map_chart_div.id = "additional_chart";
+            sdiv.id = "chart_div";
+            map_chart_div.appendChild(sdiv);
+            charts_div.appendChild(map_chart_div);
             let id = this.id;
             d3.select(this).raise();
             document.querySelectorAll(".is-clicked").forEach(function (path) {
@@ -197,7 +211,7 @@ function displayGenreByRegion(genre) {
                         {
                             label: "Population (millions)",
                             //palette : "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#fdb462"
-                            backgroundColor: [RGBToHex(path.style.fill), chartColor,chartColor,chartColor,chartColor,chartColor],
+                            backgroundColor: [RGBToHex(path.style.fill), chartColor_mapAppCSP,chartColor_mapAppCSP,chartColor_mapAppCSP,chartColor_mapAppCSP,chartColor_mapAppCSP],
                             data: [Math.round(document.getElementById(id).dataset.ratio_moyen*1000)/10,
                                 Math.round(document.getElementById(id).dataset.ratio_CSP_Plus*1000)/10,
                                 Math.round(document.getElementById(id).dataset.ratio_CSP_Moins*1000)/10,
@@ -211,10 +225,10 @@ function displayGenreByRegion(genre) {
                     title: {
                         display: true,
                         text: [region + ': Proportion de la','population écoutant du ' + genre + " en fonction de la CSP"],
-                        fontColor: title.fontColor,
-                        fontStyle: title.fontStyle,
-                        fontSize: title.fontSize,
-                        fontFamily: title.fontFamily
+                        fontColor: title_mapAppCSP.fontColor,
+                        fontStyle: title_mapAppCSP.fontStyle,
+                        fontSize: title_mapAppCSP.fontSize,
+                        fontFamily: title_mapAppCSP.fontFamily
                     },
                     scales: {
                         xAxes: [{
@@ -223,26 +237,26 @@ function displayGenreByRegion(genre) {
                             },
                             display: true,
                             ticks: {
-                                fontColor: axesTicks.fontColor,
-                                fontStyle: axesTicks.fontStyle,
-                                fontSize: axesTicks.fontSize,
-                                fontFamily: axesTicks.fontFamily
+                                fontColor: axesTicks_mapAppCSP.fontColor,
+                                fontStyle: axesTicks_mapAppCSP.fontStyle,
+                                fontSize: axesTicks_mapAppCSP.fontSize,
+                                fontFamily: axesTicks_mapAppCSP.fontFamily
                             },
                             scaleLabel: {
                                 display: true,
                                 labelString: "CSP",
-                                fontColor: axesLegend.fontColor,
-                                fontStyle: axesLegend.fontStyle,
-                                fontSize: axesLegend.fontSize,
-                                fontFamily: axesLegend.fontFamily
+                                fontColor: axesLegend_mapAppCSP.fontColor,
+                                fontStyle: axesLegend_mapAppCSP.fontStyle,
+                                fontSize: axesLegend_mapAppCSP.fontSize,
+                                fontFamily: axesLegend_mapAppCSP.fontFamily
                             }
                         }],
                         yAxes: [{
                             ticks: {
-                                fontColor: axesTicks.fontColor,
-                                fontStyle: axesTicks.fontStyle,
-                                fontSize: axesTicks.fontSize,
-                                fontFamily: axesTicks.fontFamily,
+                                fontColor: axesTicks_mapAppCSP.fontColor,
+                                fontStyle: axesTicks_mapAppCSP.fontStyle,
+                                fontSize: axesTicks_mapAppCSP.fontSize,
+                                fontFamily: axesTicks_mapAppCSP.fontFamily,
                                 max: Math.trunc(max_ratio_reg*10+1)*10,
                                 beginAtZero: true,
                             },
@@ -250,10 +264,10 @@ function displayGenreByRegion(genre) {
                             scaleLabel: {
                                 display: true,
                                 labelString: "%  d'écoute",
-                                fontColor: axesLegend.fontColor,
-                                fontStyle: axesLegend.fontStyle,
-                                fontSize: axesLegend.fontSize,
-                                fontFamily: axesLegend.fontFamily
+                                fontColor: axesLegend_mapAppCSP.fontColor,
+                                fontStyle: axesLegend_mapAppCSP.fontStyle,
+                                fontSize: axesLegend_mapAppCSP.fontSize,
+                                fontFamily: axesLegend_mapAppCSP.fontFamily
                             }
                         }]
                     }
@@ -266,10 +280,10 @@ function displayGenreByRegion(genre) {
 
         // Remove former eventListener
         let region = getRegionName(path.id)
-        if (currentListners.hasOwnProperty(region)){
-            path.removeEventListener('mousedown', currentListners[region])
+        if (currentListners_mapAppCSP.hasOwnProperty(region)){
+            path.removeEventListener('mousedown', currentListners_mapAppCSP[region])
         }
-        currentListners[region] = listenerFunction;
+        currentListners_mapAppCSP[region] = listenerFunction;
 
         // Add new event listener
         path.addEventListener('mousedown', listenerFunction);
@@ -278,10 +292,10 @@ function displayGenreByRegion(genre) {
 }
 
 
-displayGenreByRegion(document.getElementById("select_genre").value);
+displayGenreByRegion_mapAppCSP(document.getElementById("select_genre").value);
 
 document.getElementById("select_genre").addEventListener('change', (event) => {
-    displayGenreByRegion(document.getElementById("select_genre").value);
+    displayGenreByRegion_mapAppCSP(document.getElementById("select_genre").value);
 });
 
 

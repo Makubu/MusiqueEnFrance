@@ -2,9 +2,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimal-ui"/>
-  <link rel="stylesheet" href="./visuals/genreByRegionWithAge/interactiveMapStyle.css">
+  <link rel="stylesheet" href="visuals/genreByRegionWithAge/interactiveMapStyle.css">
+  <link rel="stylesheet" href="visuals/modeEcouteByAge/modeEcouteByAgeStyle.css">
+  <link rel="stylesheet" href="visuals/decouverteByAge/decouverteByAgeStyle.css">
+  <link rel="stylesheet" href="visuals/genreByAge/genreByAgeStyle.css">
 
   <link href="index_style.css" rel="stylesheet" type="text/css" />
+
   <script type="text/javascript" src="index_script.js"></script>
   
 </head>
@@ -34,7 +38,9 @@
 
 <div class = "viz">
 
-  <div id = "charts" class = "charts">
+  <div id= "chartscontainer">
+
+  <div id = "mapcharts" class = "charts">
     <div class="genre_selector">
     <select id="select_genre">
         <option value="Rap">Rap</option>
@@ -93,9 +99,28 @@
 
 
   </div>
+  <div id="genresage" class="nomapcharts hidden">
+    <div class="line_chart_age_genre " id="line_chart_div_genresage">
+    <canvas id="line_chart_div_canvas_genresage" width="400" height="400"></canvas>
+    </div>
+
+  </div>
 
 
 
+  <div id="modes_ecoute" class="nomapcharts hidden">
+    <div class="line_chart_age_genre " id="line_chart_div_modesecoute">
+    <canvas id="line_chart_div_canvas_modesecoute" width="400" height="400"></canvas>
+    </div>
+  </div>
+
+  <div id="decouverte" class="nomapcharts hidden">
+    <div class="line_chart_age_genre" id="line_chart_div_decouverte">
+    <canvas id="line_chart_div_canvas_decouverte" width="400" height="400"></canvas>
+    </div>  
+  </div>
+
+</div>
 
   <div class = "buttonbar">
 
@@ -123,17 +148,14 @@
         <img src="icons/playlist.svg" class="play" />
       </button>
       <ul id="menu">
-            <li><button onclick="option()">Genre 1</button></li>
-            <li><button onclick="option()">Genre 2</button></li>
-            <li><button onclick="option()">Genre 3</button></li>
-            <li><button onclick="option()">Genre 4</button></li>
-            <li><button onclick="option()">Genre 5</button></li>
-            <li><button onclick="option()">Genre 6</button></li>
+            <li><button onclick="option()">Carte des genres (Age)</button></li>
+            <li><button onclick="option()">Carte des genres (CSP)</button></li>
+            <li><button onclick="option()">Genres selon la classe d'age</button></li>
+            <li><button onclick="option()">Modes d'écoute</button></li>
+            <li><button onclick="option()">Découverte de la musique</button></li>
       </ul>
     </div>
 
-  </div>
-</div>
 
 
 <script src="visuals/d3/d3.js"></script>
@@ -142,5 +164,9 @@
 <script src="visuals/gettersData.js"></script>
 <script src="visuals/Chartjs.min.js"></script>
 <script src="visuals/genreByRegionWithAge/mapApp.js"></script>
+<script src="visuals/genreByRegionWithCSP/mapAppCSP.js"></script>
+<script src="visuals/decouverteByAge/decouverteByAgeApp.js"></script>
+<script src="visuals/modeEcouteByAge/modeEcouteByAgeApp.js"></script>
+<script src="visuals/genreByAge/genreByAgeApp.js"></script>
 
 </body>

@@ -5,6 +5,9 @@ scroll-behavior: smooth;
 
 body { height: 100%; }
 
+canvas{
+	display: inherit;
+}
 
 h1 { 
   display : inline-block;
@@ -170,6 +173,21 @@ li button{
 	left: -28%;
 }
 
+.hidden{
+	display: none !important;
+}
 
 
-
+.line_chart_age_genre{
+    height: 650px;
+    width: 100%;
+}
+#chartscontainer{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+.nomapcharts{
+	height: 650px;
+    width: 100%;
+}

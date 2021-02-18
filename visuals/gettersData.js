@@ -193,13 +193,107 @@ function getQ6(mode, often = false){
     }
 }
 
-
-
-
+function getQ24(mode){
+    switch (mode) {
+        case 'Streaming':
+            return getQ24_Streaming;
+        case 'Concerts':
+            return getQ24_Concerts;
+        case 'Radio':
+            return getQ24_Radio;
+        case 'Disquaires':
+            return getQ24_Disquaire;
+        case 'Amis/Proches':
+            return getQ24_Amis_Proches;
+        case 'Plateforme Video':
+            return getQ24_PlateformeVideo;
+        case 'Presse':
+            return getQ24_Presse_SiteSpecialise;
+        case 'Chaine TV':
+            return getQ24_TV;
+        case 'Reseaux Sociaux':
+            return getQ24_ReseauxSociaux;
+        case 'Autres':
+            return getQ24_Autres;
+        default:
+            console.log("CAN T FIND THE MODE " + mode);
+    }
+}
 
 
 
 /// horreur
+
+function getQ24_Streaming(csvPromise){
+    return csvPromise.filter(function(element){
+        return element.Q24_1 !== "#NUL!";
+    }).filter(function(element){
+        return element.Q24_1 !== "0"
+    })
+}
+function getQ24_PlateformeVideo(csvPromise){
+    return csvPromise.filter(function(element){
+        return element.Q24_2 !== "#NUL!";
+    }).filter(function(element){
+        return element.Q24_2 !== "0"
+    })
+}
+function getQ24_ReseauxSociaux(csvPromise){
+    return csvPromise.filter(function(element){
+        return element.Q24_3 !== "#NUL!";
+    }).filter(function(element){
+        return element.Q24_3 !== "0"
+    })
+}
+function getQ24_Radio(csvPromise){
+    return csvPromise.filter(function(element){
+        return element.Q24_4 !== "#NUL!";
+    }).filter(function(element){
+        return element.Q24_4 !== "0"
+    })
+}
+function getQ24_Concerts(csvPromise){
+    return csvPromise.filter(function(element){
+        return element.Q24_5 !== "#NUL!";
+    }).filter(function(element){
+        return element.Q24_5 !== "0"
+    })
+}
+function getQ24_TV(csvPromise){
+    return csvPromise.filter(function(element){
+        return element.Q24_6 !== "#NUL!";
+    }).filter(function(element){
+        return element.Q24_6 !== "0"
+    })
+}
+function getQ24_Presse_SiteSpecialise(csvPromise){
+    return csvPromise.filter(function(element){
+        return element.Q24_7 !== "#NUL!";
+    }).filter(function(element){
+        return element.Q24_7 !== "0"
+    })
+}
+function getQ24_Disquaire(csvPromise){
+    return csvPromise.filter(function(element){
+        return element.Q24_8 !== "#NUL!";
+    }).filter(function(element){
+        return element.Q24_8 !== "0"
+    })
+}
+function getQ24_Amis_Proches(csvPromise){
+    return csvPromise.filter(function(element){
+        return element.Q24_9 !== "#NUL!";
+    }).filter(function(element){
+        return element.Q24_9 !== "0"
+    })
+}
+function getQ24_Autres(csvPromise){
+    return csvPromise.filter(function(element){
+        return element.Q24_10 !== "#NUL!";
+    }).filter(function(element){
+        return element.Q24_10 !== "0"
+    })
+}
 
 function getQ6_SiteInternet(csvPromise, often=false){
     return csvPromise.filter(function(element){

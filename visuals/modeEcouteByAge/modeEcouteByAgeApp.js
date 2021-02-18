@@ -1,26 +1,26 @@
 //Style
-const axesLegend = {
+const axesLegend_modeEcouteByAgeApp = {
     fontFamily: "'MarrSans', Helvetica, arial, serif",
     fontStyle: "normal",
     fontColor: 'black',
     fontSize: 15,
 };
 
-const axesTicks = {
+const axesTicks_modeEcouteByAgeApp = {
     fontFamily: "'MarrSans', Helvetica, arial, serif",
     fontStyle: "normal",
     fontColor: 'black',
     fontSize: 13,
 };
 
-const legendLabels = {
+const legendLabels_modeEcouteByAgeApp = {
     fontFamily: "'MarrSans', Helvetica, arial, serif",
     fontStyle: "normal",
     fontColor: 'black',
     fontSize: 14,
 };
 
-const title = {
+const title_modeEcouteByAgeApp = {
     fontFamily: "'MarrSans', Helvetica, arial, serif",
     fontStyle: "normal",
     fontColor: 'black',
@@ -28,7 +28,7 @@ const title = {
 };
 
 
-const chartColors = {
+const chartColors_modeEcouteByAgeApp = {
     "Application": '#8dd3c7',
     "Concert": '#455D94',
     "Radio": '#bebada',
@@ -38,7 +38,7 @@ const chartColors = {
     "Vinyle": '#b3de69',
 };
 
-const chartColorsBorder = {
+const chartColorsBorder_modeEcouteByAgeApp = {
     "Application": '#8dd3c7',
     "Concert": '#455D94',
     "Radio": '#bebada',
@@ -54,47 +54,47 @@ const chartColorsBorder = {
     "Variété": '#F65656' */
 };
 
-const MODES = ["Application", "Concert", "Radio", "CD", "Vinyle", "Site internet", "Chaine TV"]
-const AGE = ["15-24", "25-34", "35-49", "50-64", "65+"];
-const OFTEN = false;
+const MODES_modeEcouteByAgeApp = ["Application", "Concert", "Radio", "CD", "Vinyle", "Site internet", "Chaine TV"]
+const AGE_modeEcouteByAgeApp = ["15-24", "25-34", "35-49", "50-64", "65+"];
+const OFTEN_modeEcouteByAgeApp = false;
 
 //Import data
-dataP = d3.csv("http://localhost:8000/small_data.csv"); // dataP pour data Promise
+let dataP_modeEcouteByAgeApp = d3.csv("http://localhost:8000/small_data.csv"); // dataP pour data Promise
 
-let musicData = {};
-let datasetsValue = [];
+let musicData_modeEcouteByAgeApp = {};
+let datasetsValue_modeEcouteByAgeApp = [];
 
-dataP.then(function (csv) {
-    MODES.forEach(function (mode){
+dataP_modeEcouteByAgeApp.then(function (csv) {
+    MODES_modeEcouteByAgeApp.forEach(function (mode){
         let values = [];
-        AGE.forEach(function (age){
-            let newVal = getAge(age)(getQ6(mode, OFTEN)(csv)).length / getAge(age)(csv).length;
+        AGE_modeEcouteByAgeApp.forEach(function (age){
+            let newVal = getAge(age)(getQ6(mode, OFTEN_modeEcouteByAgeApp)(csv)).length / getAge(age)(csv).length;
             values.push(Math.round(newVal*1000)/10);
         })
-        musicData[mode] = values;
+        musicData_modeEcouteByAgeApp[mode] = values;
     })
 
-    MODES.forEach(function (mode, index){
+    MODES_modeEcouteByAgeApp.forEach(function (mode, index){
         let hide = true;
         if (index < 5){
             hide = false;
         }
         let elem = {
             label: mode,
-            backgroundColor: chartColors[mode],
-            borderColor: chartColorsBorder[mode],
-            data: musicData[mode],
+            backgroundColor: chartColors_modeEcouteByAgeApp[mode],
+            borderColor: chartColorsBorder_modeEcouteByAgeApp[mode],
+            data: musicData_modeEcouteByAgeApp[mode],
             fill: false,
             hidden: hide,
         }
-        datasetsValue.push(elem);
+        datasetsValue_modeEcouteByAgeApp.push(elem);
     })
 
     let config = {
         type: 'line',
         data: {
-            labels: AGE,
-            datasets: datasetsValue
+            labels: AGE_modeEcouteByAgeApp,
+            datasets: datasetsValue_modeEcouteByAgeApp
         },
         options: {
             maintainAspectRatio: false,
@@ -105,10 +105,10 @@ dataP.then(function (csv) {
             title: {
                 display: true,
                 text: "Pourcentage d'utilisation de divers modes d'écoute par tranche d'age",
-                fontColor: title.fontColor,
-                fontStyle: title.fontStyle,
-                fontSize: title.fontSize,
-                fontFamily: title.fontFamily
+                fontColor: title_modeEcouteByAgeApp.fontColor,
+                fontStyle: title_modeEcouteByAgeApp.fontStyle,
+                fontSize: title_modeEcouteByAgeApp.fontSize,
+                fontFamily: title_modeEcouteByAgeApp.fontFamily
             },
             tooltips: {
                 mode: 'point',
@@ -119,52 +119,52 @@ dataP.then(function (csv) {
             },
             legend:{
                 labels:{
-                    fontColor: legendLabels.fontColor,
-                    fontStyle: legendLabels.fontStyle,
-                    fontSize: legendLabels.fontSize,
-                    fontFamily: legendLabels.fontFamily
+                    fontColor: legendLabels_modeEcouteByAgeApp.fontColor,
+                    fontStyle: legendLabels_modeEcouteByAgeApp.fontStyle,
+                    fontSize: legendLabels_modeEcouteByAgeApp.fontSize,
+                    fontFamily: legendLabels_modeEcouteByAgeApp.fontFamily
                 }
             },
             scales: {
                 xAxes: [{
                     display: true,
                     ticks: {
-                        fontColor: axesTicks.fontColor,
-                        fontStyle: axesTicks.fontStyle,
-                        fontSize: axesTicks.fontSize,
-                        fontFamily: axesTicks.fontFamily
+                        fontColor: axesTicks_modeEcouteByAgeApp.fontColor,
+                        fontStyle: axesTicks_modeEcouteByAgeApp.fontStyle,
+                        fontSize: axesTicks_modeEcouteByAgeApp.fontSize,
+                        fontFamily: axesTicks_modeEcouteByAgeApp.fontFamily
                     },
                     scaleLabel: {
                         display: true,
                         labelString: "Age",
-                        fontColor: axesLegend.fontColor,
-                        fontStyle: axesLegend.fontStyle,
-                        fontSize: axesLegend.fontSize,
-                        fontFamily: axesLegend.fontFamily
+                        fontColor: axesLegend_modeEcouteByAgeApp.fontColor,
+                        fontStyle: axesLegend_modeEcouteByAgeApp.fontStyle,
+                        fontSize: axesLegend_modeEcouteByAgeApp.fontSize,
+                        fontFamily: axesLegend_modeEcouteByAgeApp.fontFamily
                     }
                 }],
                 yAxes: [{
                     ticks: {
-                        fontColor: axesTicks.fontColor,
-                        fontStyle: axesTicks.fontStyle,
-                        fontSize: axesTicks.fontSize,
-                        fontFamily: axesTicks.fontFamily,
+                        fontColor: axesTicks_modeEcouteByAgeApp.fontColor,
+                        fontStyle: axesTicks_modeEcouteByAgeApp.fontStyle,
+                        fontSize: axesTicks_modeEcouteByAgeApp.fontSize,
+                        fontFamily: axesTicks_modeEcouteByAgeApp.fontFamily,
                     },
                     display: true,
                     scaleLabel: {
                         display: true,
                         labelString: "Pourcentage d'utilisation",
-                        fontColor: axesLegend.fontColor,
-                        fontStyle: axesLegend.fontStyle,
-                        fontSize: axesLegend.fontSize,
-                        fontFamily: axesLegend.fontFamily
+                        fontColor: axesLegend_modeEcouteByAgeApp.fontColor,
+                        fontStyle: axesLegend_modeEcouteByAgeApp.fontStyle,
+                        fontSize: axesLegend_modeEcouteByAgeApp.fontSize,
+                        fontFamily: axesLegend_modeEcouteByAgeApp.fontFamily
                     }
                 }]
             }
         }
     };
 
-    let ctx = document.getElementById("line_chart_div_canvas").getContext("2d");
+    let ctx = document.getElementById("line_chart_div_canvas_modesecoute").getContext("2d");
     let chartLine = new Chart(ctx, config);
     chartLine.update();
 

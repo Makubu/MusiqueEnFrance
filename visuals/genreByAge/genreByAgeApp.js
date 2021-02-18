@@ -1,26 +1,26 @@
 //Style
-const axesLegend = {
+const axesLegend_genreByAgeApp = {
     fontFamily: "'MarrSans', Helvetica, arial, serif",
     fontStyle: "normal",
     fontColor: 'black',
     fontSize: 15,
 };
 
-const axesTicks = {
+const axesTicks_genreByAgeApp = {
     fontFamily: "'MarrSans', Helvetica, arial, serif",
     fontStyle: "normal",
     fontColor: 'black',
     fontSize: 13,
 };
 
-const legendLabels = {
+const legendLabels_genreByAgeApp = {
     fontFamily: "'MarrSans', Helvetica, arial, serif",
     fontStyle: "normal",
     fontColor: 'black',
     fontSize: 14,
 };
 
-const title = {
+const title_genreByAgeApp = {
     fontFamily: "'MarrSans', Helvetica, arial, serif",
     fontStyle: "normal",
     fontColor: 'black',
@@ -28,7 +28,7 @@ const title = {
 };
 
 
-const chartColors = {
+const chartColors_genreByAgeApp = {
     "Rap": '#8dd3c7',
     "Autre": '#455D94',
     "Dance": '#bebada',
@@ -44,7 +44,7 @@ const chartColors = {
     "Variété": '#F65656'
 };
 
-const chartColorsBorder = {
+const chartColorsBorder_genreByAgeApp = {
     "Rap": '#8dd3c7',
     "Autre": '#455D94',
     "Dance": '#bebada',
@@ -60,47 +60,47 @@ const chartColorsBorder = {
     "Variété": '#F65656'
 };
 
-const GENRES = ["Rap", "Classique", "Variété", "PopRock", "Autre", "Dance", "Electro", "Jazz",
+const GENRES_genreByAgeApp = ["Rap", "Classique", "Variété", "PopRock", "Autre", "Dance", "Electro", "Jazz",
     "Musique du monde", "Métal", "Reggae", "RnB", "Soul"]
-const AGE = ["15-24", "25-34", "35-49", "50-64", "65+"];
+const AGE_genreByAgeApp = ["15-24", "25-34", "35-49", "50-64", "65+"];
 
 //Import data
-dataP = d3.csv("http://localhost:8000/small_data.csv"); // dataP pour data Promise
+let dataP_genreByAgeApp = d3.csv("http://localhost:8000/small_data.csv"); // dataP pour data Promise
 
-let musicData = {};
-let datasetsValue = [];
+let musicData_genreByAgeApp = {};
+let datasetsValue_genreByAgeApp = [];
 
-dataP.then(function (csv) {
-    GENRES.forEach(function (genre){
+dataP_genreByAgeApp.then(function (csv) {
+    GENRES_genreByAgeApp.forEach(function (genre){
         let values = [];
-        AGE.forEach(function (age){
+        AGE_genreByAgeApp.forEach(function (age){
             let newVal = getAge(age)(getGenre(genre)(csv)).length / getAge(age)(csv).length;
             values.push(Math.round(newVal*1000)/10);
         })
-        musicData[genre] = values;
+        musicData_genreByAgeApp[genre] = values;
     })
 
-    GENRES.forEach(function (genre, index){
+    GENRES_genreByAgeApp.forEach(function (genre, index){
         let hide = true;
         if (index < 4){
             hide = false;
         }
         let elem = {
             label: genre,
-            backgroundColor: chartColors[genre],
-            borderColor: chartColorsBorder[genre],
-            data: musicData[genre],
+            backgroundColor: chartColors_genreByAgeApp[genre],
+            borderColor: chartColorsBorder_genreByAgeApp[genre],
+            data: musicData_genreByAgeApp[genre],
             fill: false,
             hidden: hide,
         }
-        datasetsValue.push(elem);
+        datasetsValue_genreByAgeApp.push(elem);
     })
 
     let config = {
         type: 'line',
         data: {
-            labels: AGE,
-            datasets: datasetsValue
+            labels: AGE_genreByAgeApp,
+            datasets: datasetsValue_genreByAgeApp
         },
         options: {
             maintainAspectRatio: false,
@@ -111,10 +111,10 @@ dataP.then(function (csv) {
             title: {
                 display: true,
                 text: "Pourcentage d'écoute des genres de musique par tranche d'age",
-                fontColor: title.fontColor,
-                fontStyle: title.fontStyle,
-                fontSize: title.fontSize,
-                fontFamily: title.fontFamily
+                fontColor: title_genreByAgeApp.fontColor,
+                fontStyle: title_genreByAgeApp.fontStyle,
+                fontSize: title_genreByAgeApp.fontSize,
+                fontFamily: title_genreByAgeApp.fontFamily
             },
             tooltips: {
                 mode: 'point',
@@ -125,53 +125,53 @@ dataP.then(function (csv) {
             },
             legend:{
                 labels:{
-                    fontColor: legendLabels.fontColor,
-                    fontStyle: legendLabels.fontStyle,
-                    fontSize: legendLabels.fontSize,
-                    fontFamily: legendLabels.fontFamily
+                    fontColor: legendLabels_genreByAgeApp.fontColor,
+                    fontStyle: legendLabels_genreByAgeApp.fontStyle,
+                    fontSize: legendLabels_genreByAgeApp.fontSize,
+                    fontFamily: legendLabels_genreByAgeApp.fontFamily
                 }
             },
             scales: {
                 xAxes: [{
                     display: true,
                     ticks: {
-                        fontColor: axesTicks.fontColor,
-                        fontStyle: axesTicks.fontStyle,
-                        fontSize: axesTicks.fontSize,
-                        fontFamily: axesTicks.fontFamily
+                        fontColor: axesTicks_genreByAgeApp.fontColor,
+                        fontStyle: axesTicks_genreByAgeApp.fontStyle,
+                        fontSize: axesTicks_genreByAgeApp.fontSize,
+                        fontFamily: axesTicks_genreByAgeApp.fontFamily
                     },
                     scaleLabel: {
                         display: true,
                         labelString: "Age",
-                        fontColor: axesLegend.fontColor,
-                        fontStyle: axesLegend.fontStyle,
-                        fontSize: axesLegend.fontSize,
-                        fontFamily: axesLegend.fontFamily
+                        fontColor: axesLegend_genreByAgeApp.fontColor,
+                        fontStyle: axesLegend_genreByAgeApp.fontStyle,
+                        fontSize: axesLegend_genreByAgeApp.fontSize,
+                        fontFamily: axesLegend_genreByAgeApp.fontFamily
                     }
                 }],
                 yAxes: [{
                     ticks: {
-                        fontColor: axesTicks.fontColor,
-                        fontStyle: axesTicks.fontStyle,
-                        fontSize: axesTicks.fontSize,
-                        fontFamily: axesTicks.fontFamily,
+                        fontColor: axesTicks_genreByAgeApp.fontColor,
+                        fontStyle: axesTicks_genreByAgeApp.fontStyle,
+                        fontSize: axesTicks_genreByAgeApp.fontSize,
+                        fontFamily: axesTicks_genreByAgeApp.fontFamily,
                         beginAtZero: true,
                     },
                     display: true,
                     scaleLabel: {
                         display: true,
                         labelString: "Pourcentage d'écoute de la tranche d'age",
-                        fontColor: axesLegend.fontColor,
-                        fontStyle: axesLegend.fontStyle,
-                        fontSize: axesLegend.fontSize,
-                        fontFamily: axesLegend.fontFamily
+                        fontColor: axesLegend_genreByAgeApp.fontColor,
+                        fontStyle: axesLegend_genreByAgeApp.fontStyle,
+                        fontSize: axesLegend_genreByAgeApp.fontSize,
+                        fontFamily: axesLegend_genreByAgeApp.fontFamily
                     }
                 }]
             }
         }
     };
 
-    let ctx = document.getElementById("line_chart_div_canvas").getContext("2d");
+    let ctx = document.getElementById("line_chart_div_canvas_genresage").getContext("2d");
     let chartLine = new Chart(ctx, config);
     chartLine.update();
 

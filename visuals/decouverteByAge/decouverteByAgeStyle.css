@@ -1,0 +1,10 @@
+/* A modifier pour integration */
+
+
+@font-face {
+    font-family: "MarrSans";
+    src:
+            url("../fonts/MarrSans-Regular-Web.woff2") format("woff2"),
+            url("../fonts/MarrSans-Semibold-Web.woff2") format("woff2"),
+            url("../fonts/MarrSans-Medium-Web.woff2") format("woff2");
+}

@@ -1,4 +1,4 @@
-    const map = document.querySelector('#map');
+const map = document.querySelector('#map');
 const paths = map.querySelectorAll('.map_image path');
 
 const color1 = "rgb(244, 220, 213)"; //color for map: interpolation between color1 and color2
@@ -59,7 +59,7 @@ function hideMapInfo(event) {
 
         let map_inf = document.querySelector('#chart_div');
         map_inf.innerHTML = "<canvas id=\"bar_chart_canvas\" width=\"400\" height=\"400\"></canvas>";
-        let charts_div = document.getElementById("charts");
+        let charts_div = document.getElementById("mapcharts");
         charts_div.removeChild(document.getElementById("additional_chart"));
 
         })
@@ -68,7 +68,7 @@ function hideMapInfo(event) {
 
 
 //Import data
-dataP = d3.csv("./small_data.csv"); // dataP pour data Promise
+let dataP = d3.csv("http://localhost:8000/small_data.csv"); // dataP pour data Promise
 
 //To keep track of the listeners
 let currentListners = {};
@@ -189,7 +189,11 @@ function displayGenreByRegion(genre) {
 
 
         function listenerFunction () {
-            let charts_div = document.getElementById("charts");
+
+            let charts_div = document.getElementById("mapcharts");
+            if(insight_etudie != 0){
+                return;
+            }
             let map_chart_div = document.createElement("div");
             let sdiv = document.createElement("div");
             map_chart_div.class = "map_chart";
