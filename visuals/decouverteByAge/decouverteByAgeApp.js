@@ -59,7 +59,7 @@ const AGE_decouverteByAgeApp = ["15-24", "25-34", "35-49", "50-64", "65+"];
 
 
 //Import data
-let dataP_decouverteByAgeApp = d3.csv("http://localhost:8000/small_data.csv"); // dataP pour data Promise
+let dataP_decouverteByAgeApp = d3.csv("./small_data.csv"); // dataP pour data Promise
 
 let musicData_decouverteByAgeApp = {};
 let datasetsValue_decouverteByAgeApp = [];
