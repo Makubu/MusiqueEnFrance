@@ -68,7 +68,7 @@ function hideMapInfo(event) {
 
 
 //Import data
-dataP = d3.csv("http://localhost:8000/small_data.csv"); // dataP pour data Promise
+dataP = d3.csv("small_data.csv"); // dataP pour data Promise
 
 //To keep track of the listeners
 let currentListners = {};
