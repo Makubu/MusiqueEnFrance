@@ -1,7 +1,7 @@
 var insight_etudie = 0;
-var insights = ["Carte des genres (Age)", "Carte des genres (CSP)", "Genres selon la classe d'age", "Modes d'écoute", "Découverte de la musique"];
-const lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque placerat porttitor urna, a ullamcorper arcu faucibus in. Vestibulum vel pellentesque libero. Aliquam erat volutpat. Duis aliquet et ligula nec mattis. Donec vehicula maximus mi, et consectetur odio ultricies in. Maecenas et mi lorem. Nullam laoreet sodales consectetur. Maecenas fringilla iaculis felis sed facilisis. Nunc vehicula massa tellus, vitae faucibus lectus gravida et. Nullam quis neque euismod, sodales mauris in, efficitur est." 
-var corresponding_ids = ["mapcharts","mapcharts","genresage","modes_ecoute","decouverte"];
+var insights = ["Carte des genres (Age)", "Genres selon la classe d'age", "Carte des genres (CSP)", "Modes d'écoute", "Découverte de la musique"];
+const lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque placerat porttitor urna, a ullamcorper arcu faucibus in. Vestibulum vel pellentesque libero. Aliquam erat volutpat. Duis aliquet et ligula nec mattis. Donec vehicula maximus mi, et consectetur odio ultricies in. Maecenas et mi lorem. Nullam laoreet sodales consectetur. Maecenas fringilla iaculis felis sed facilisis. Nunc vehicula massa tellus, vitae faucibus lectus gravida et. Nullam quis neque euismod, sodales mauris in, efficitur est."
+var corresponding_ids = ["mapcharts", "genresage", "mapcharts","modes_ecoute","decouverte"];
 var paused = true;
 
 
@@ -15,7 +15,7 @@ function update(){
 	for (var i=0; i<5 ; i++){
 		if(!(document.getElementById(corresponding_ids[i]).classList.contains("hidden"))){
 			document.getElementById(corresponding_ids[i]).classList.add("hidden");
-		}	
+		}
 	}
 	document.getElementById(corresponding_ids[insight_etudie]).classList.remove("hidden");
 }
@@ -58,7 +58,7 @@ function hideMenu(event){
 	if (!event.target.closest('#menubutton')) {
 		document.getElementById("menu").classList.remove("open");
 	}
-} 
+}
 
 function more(){
 	if (paused) {
