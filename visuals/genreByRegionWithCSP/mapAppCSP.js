@@ -66,7 +66,6 @@ function hideMapInfo(event) {
 
 
 //Import data
-let dataP_mapAppCSP = d3.csv("./small_data.csv"); // dataP pour data Promise
 
 //To keep track of the listeners
 let currentListners_mapAppCSP = {};
@@ -181,8 +180,7 @@ function displayGenreByRegion_mapAppCSP(genre) {
         function listenerFunction () {
 
             let charts_div = document.getElementById("mapcharts");
-            if(insight_etudie != 1){
-                console.log("ok");
+            if(insight_etudie != 2){
                 return;
             }
             let map_chart_div = document.createElement("div");
