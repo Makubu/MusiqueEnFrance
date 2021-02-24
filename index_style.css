@@ -54,7 +54,7 @@ img.start {
 }
 .playimg {
 	width : 90%;
-	height : 85%;
+	height : 75%;
 
 }
 
@@ -91,6 +91,7 @@ div.info_insights{
 	flex-grow : 1;
 	justify-content: center;
 	width: 33%;
+	height: 100%
 }
 
 .center{
@@ -136,7 +137,7 @@ div.charts{
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-	height: 650px;
+	height: 100%;
 }
 
 div ul {
