@@ -168,6 +168,22 @@ dataP_modeEcouteByAgeApp.then(function (csv) {
     let chartLine = new Chart(ctx, config);
     chartLine.update();
 
+    //CHANGES FOR LEGEND
+
+    MODES_modeEcouteByAgeApp.forEach(function (mode, index ){
+        let label_id = "check_ecoute_" + mode
+        document.getElementById(label_id+ "_label").style.color = chartLine.data.datasets[index].backgroundColor;
+        document.getElementById(label_id+ "_checkmark").style.backgroundColor = chartLine.data.datasets[index].backgroundColor;
+        let legend_checkbox = document.getElementById("check_ecoute_" + mode);
+        legend_checkbox.addEventListener('change', function () {
+            if (this.checked) {
+                chartLine.data.datasets[index].hidden = false;
+            } else {
+                chartLine.data.datasets[index].hidden = true;
+            }
+            chartLine.update();
+        });
+    });
 
 });
 
