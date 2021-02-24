@@ -53,8 +53,8 @@ img.start {
 
 }
 .playimg {
-	width : 50px;
-	height : 70px;
+	width : 90%;
+	height : 85%;
 
 }
 
@@ -216,9 +216,10 @@ li button{
 	flex-direction: row;
 	justify-content: center;
 	height: 90%;
+	border-left : 15px solid #FDFDFD;
 }
 .nomapcharts{
-	height: 650px;
+	height: 100%;
     width: 100%;
     display: flex;
     flex-direction: row;
