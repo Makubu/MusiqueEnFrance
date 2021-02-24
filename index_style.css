@@ -136,7 +136,7 @@ div.charts{
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-	height: 650px;
+	height: 100%;
 }
 
 div ul {
