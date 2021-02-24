@@ -9,11 +9,11 @@
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    data-name="Layer 1"
    id="Layer_1"
-   viewBox="0 0 69.931259 70"
+   viewBox="0 0 70 70"
    version="1.1"
    sodipodi:docname="pause.svg"
    inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
-   width="69.931259"
+   width="70"
    height="70">
   <metadata
      id="metadata15">
@@ -52,23 +52,23 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1606"
-     inkscape:window-height="1020"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
      id="namedview11"
      showgrid="false"
      inkscape:zoom="5.6568542"
-     inkscape:cx="35.032161"
-     inkscape:cy="31.311406"
-     inkscape:window-x="83"
-     inkscape:window-y="0"
-     inkscape:window-maximized="0"
-     inkscape:current-layer="g843"
+     inkscape:cx="25.833675"
+     inkscape:cy="35.340294"
+     inkscape:window-x="2551"
+     inkscape:window-y="346"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="Layer_1"
      inkscape:document-rotation="0" />
   <g
      id="g843"
      inkscape:path-effect="#path-effect845"
-     transform="translate(-94.158985,-3.7936269)"
-     style="fill:#000000;fill-opacity:1">
+     transform="matrix(1.000983,0,0,1,-94.251543,-3.7936269)"
+     style="fill:#ffffff;fill-opacity:1">
     <g
        id="g1432"
        transform="matrix(0.77700995,0,0,0.77777372,22.02507,-0.09524168)"

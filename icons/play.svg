@@ -9,29 +9,43 @@
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    data-name="Layer 1"
    id="Layer_1"
-   viewBox="0 0 90 90"
+   viewBox="0 0 70 70"
    version="1.1"
    sodipodi:docname="play.svg"
-   width="90"
-   height="90"
-   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
+   width="70"
+   height="70">
   <metadata
-     id="metadata5604">
+     id="metadata15">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <defs
-     id="defs5602" />
+     id="defs13">
+    <inkscape:path-effect
+       effect="mirror_symmetry"
+       start_point="95,5"
+       end_point="95,95"
+       center_point="95,50"
+       id="path-effect845"
+       is_visible="true"
+       lpeversion="1"
+       mode="free"
+       discard_orig_path="true"
+       fuse_paths="false"
+       oposite_fuse="false"
+       split_items="false" />
+  </defs>
   <sodipodi:namedview
      pagecolor="#ffffff"
-     bordercolor="#666666"
+     bordercolor="#fffff"
      borderopacity="1"
      objecttolerance="10"
      gridtolerance="10"
@@ -39,23 +53,28 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-width="1920"
-     inkscape:window-height="986"
-     id="namedview5600"
+     inkscape:window-height="1001"
+     id="namedview11"
      showgrid="false"
-     inkscape:zoom="8"
-     inkscape:cx="45"
-     inkscape:cy="45"
-     inkscape:window-x="-11"
-     inkscape:window-y="-11"
+     inkscape:zoom="5.6568542"
+     inkscape:cx="25.805731"
+     inkscape:cy="42.411362"
+     inkscape:window-x="2551"
+     inkscape:window-y="346"
      inkscape:window-maximized="1"
      inkscape:current-layer="Layer_1"
      inkscape:document-rotation="0" />
-  <path
-     d="M 45,0 A 45,45 0 1 0 90,45 45.00058,45.00058 0 0 0 45,0 Z M 75.40552,75.40552 A 42.99965,42.99965 0 1 1 88,45 42.86137,42.86137 0 0 1 75.40552,75.40552 Z"
-     style="fill:#ffffff;fill-opacity:1"
-     id="path5593" />
-  <path
-     d="M 62.783411,42.76355 33.967491,24.40466 a 2.54693,2.54693 0 0 0 -1.37195,-0.4046 2.58829,2.58829 0 0 0 -1.81012,0.74756 2.64076,2.64076 0 0 0 -0.78546,1.89349 v 36.71778 a 2.64092,2.64092 0 0 0 0.7854,1.89343 2.588,2.588 0 0 0 1.81012,0.74756 2.54632,2.54632 0 0 0 1.372,-0.4046 l 28.81593,-18.35883 a 2.66383,2.66383 0 0 0 0,-4.4729 z m -1.07477,2.78619 -28.81586,18.35883 a 0.5411,0.5411 0 0 1 -0.2973,0.09131 0.59079,0.59079 0 0 1 -0.40771,-0.17353 0.63378,0.63378 0 0 1 -0.18781,-0.46746 V 26.64111 a 0.63378,0.63378 0 0 1 0.18781,-0.46746 0.59111,0.59111 0 0 1 0.40777,-0.17359 0.54119,0.54119 0 0 1 0.2973,0.09137 l 28.81586,18.35889 a 0.66419,0.66419 0 0 1 -6e-5,1.09942 z"
-     style="fill:#ffffff;fill-opacity:1"
-     id="path5595" />
+  <g
+     id="g854"
+     transform="scale(0.77777778)"
+     style="fill:#ffffff;fill-opacity:1">
+    <path
+       d="M 45,0 A 45,45 0 1 0 90,45 45.00058,45.00058 0 0 0 45,0 Z M 75.40552,75.40552 A 42.99965,42.99965 0 1 1 88,45 42.86137,42.86137 0 0 1 75.40552,75.40552 Z"
+       style="fill:#ffffff;fill-opacity:1"
+       id="path5593" />
+    <path
+       d="M 62.783411,42.76355 33.967491,24.40466 a 2.54693,2.54693 0 0 0 -1.37195,-0.4046 2.58829,2.58829 0 0 0 -1.81012,0.74756 2.64076,2.64076 0 0 0 -0.78546,1.89349 v 36.71778 a 2.64092,2.64092 0 0 0 0.7854,1.89343 2.588,2.588 0 0 0 1.81012,0.74756 2.54632,2.54632 0 0 0 1.372,-0.4046 l 28.81593,-18.35883 a 2.66383,2.66383 0 0 0 0,-4.4729 z m -1.07477,2.78619 -28.81586,18.35883 a 0.5411,0.5411 0 0 1 -0.2973,0.09131 0.59079,0.59079 0 0 1 -0.40771,-0.17353 0.63378,0.63378 0 0 1 -0.18781,-0.46746 V 26.64111 a 0.63378,0.63378 0 0 1 0.18781,-0.46746 0.59111,0.59111 0 0 1 0.40777,-0.17359 0.54119,0.54119 0 0 1 0.2973,0.09137 l 28.81586,18.35889 a 0.66419,0.66419 0 0 1 -6e-5,1.09942 z"
+       style="fill:#ffffff;fill-opacity:1"
+       id="path5595" />
+  </g>
 </svg>
