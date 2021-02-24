@@ -209,8 +209,8 @@ li button{
 
 
 .line_chart_age_genre{
-    height: 650px;
-    width: 650px;
+    height: 100%;
+    width: 50%;
 }
 #chartscontainer{
 	display: flex;
@@ -237,6 +237,36 @@ li button{
 
 
 
+
+
+
+
+
+.modes_ecoute_legend{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.modes_ecoute_legend > div {
+	height: 5%;
+}
+
+
+.checkbox_label {
+	display: block;
+	position: relative;
+	padding-left: 35px;
+	padding-bottom: 10px;
+	margin-bottom: 12px;
+	cursor: pointer;
+	font-size: 15px;
+	font-family: 'MarrSans', Helvetica, arial, serif;
+	font-weight: 500;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
 
 /* Hide the browser's default checkbox */
 .checkbox_label input {
@@ -291,11 +321,6 @@ li button{
 	-ms-transform: rotate(45deg);
 	transform: rotate(45deg);
 }
-
-
-
-
-
 
 
 
