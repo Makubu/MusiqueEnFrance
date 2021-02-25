@@ -65,7 +65,7 @@ const GENRES_genreByAgeApp = ["Rap", "Classique", "Variété", "PopRock", "Autre
 const AGE_genreByAgeApp = ["15-24", "25-34", "35-49", "50-64", "65+"];
 
 //Import data
-let dataP_genreByAgeApp = d3.csv("./small_data.csv"); // dataP pour data Promise
+let dataP_genreByAgeApp = d3.csv("/small_data.csv"); // dataP pour data Promise
 
 let musicData_genreByAgeApp = {};
 let datasetsValue_genreByAgeApp = [];
@@ -124,6 +124,7 @@ dataP_genreByAgeApp.then(function (csv) {
                 intersect: true
             },
             legend:{
+                display:false,
                 labels:{
                     fontColor: legendLabels_genreByAgeApp.fontColor,
                     fontStyle: legendLabels_genreByAgeApp.fontStyle,
@@ -175,6 +176,30 @@ dataP_genreByAgeApp.then(function (csv) {
     let chartLine = new Chart(ctx, config);
     chartLine.update();
 
+
+    //CHANGES FOR LEGEND
+
+    GENRES_genreByAgeApp.forEach(function (genre, index ){
+        let label_id = "check_genresage_" + genre
+        document.getElementById(label_id+ "_label").style.color = chartLine.data.datasets[index].backgroundColor;
+        document.getElementById(label_id+ "_checkmark").style.border = "2px solid " + chartLine.data.datasets[index].backgroundColor;
+        let legend_checkbox = document.getElementById("check_genresage_" + genre);
+        if (legend_checkbox.checked) {
+            document.getElementById(label_id+ "_checkmark").style.backgroundColor = chartLine.data.datasets[index].backgroundColor;
+        } else {
+            document.getElementById(label_id+ "_checkmark").style.backgroundColor = "rgba(255, 255, 255, 0)";
+        }
+        legend_checkbox.addEventListener('change', function () {
+            if (this.checked) {
+                chartLine.data.datasets[index].hidden = false;
+                document.getElementById(label_id+ "_checkmark").style.backgroundColor = chartLine.data.datasets[index].backgroundColor;
+            } else {
+                chartLine.data.datasets[index].hidden = true;
+                document.getElementById(label_id+ "_checkmark").style.backgroundColor = "rgba(255, 255, 255, 0)";
+            }
+            chartLine.update();
+        });
+    });
 
 });
 

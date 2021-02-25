@@ -1,30 +1,30 @@
-html { 
-height: 100%; overflow:auto; 
-scroll-behavior: smooth;
-margin :0;
-padding : 0;
+html {
+	height: 100%; overflow:auto;
+	scroll-behavior: smooth;
+	margin :0;
+	padding : 0;
 }
 
-body { 
-height: 100%;
-margin :0;
-padding : 0; 
-background: #FDFDFD;
+body {
+	height: 100%;
+	margin :0;
+	padding : 0;
+	background: #FDFDFD;
 }
 
 canvas{
 	display: inherit;
 }
 
-h1 { 
-  display : inline-block;
-  color : #444F59;
-  font-family: MarrSans;
-  text-align: center;
-  border-style : solid;
-  border-width: medium;
-  border-color : #FD999A;
-  padding : 10px;
+h1 {
+	display : inline-block;
+	color : #444F59;
+	font-family: MarrSans;
+	text-align: center;
+	border-style : solid;
+	border-width: medium;
+	border-color : #FD999A;
+	padding : 10px;
 }
 
 h2{
@@ -36,10 +36,10 @@ button{
 }
 
 p {
-  font-family: MarrSans;
-  color : #444F59;
-  text-align: center;
-  vertical-align: middle;
+	font-family: MarrSans;
+	color : #444F59;
+	text-align: center;
+	vertical-align: middle;
 }
 
 select option{
@@ -68,7 +68,7 @@ button.start{
 }
 
 button.start:hover img{
-	
+
 }
 
 
@@ -97,7 +97,7 @@ div.info_insights{
 .center{
 	position: relative;
 	display : flex;
-	justify-content: center;	
+	justify-content: center;
 	transition-duration: 5s;
 	transition-property: left;
 
@@ -122,7 +122,7 @@ div.home{
 	text-align: center;
 	display: flex;
 	justify-content: center;
-	flex-direction: column;	
+	flex-direction: column;
 	height: 100%;
 
 }
@@ -159,7 +159,7 @@ ul li{
 	display: flex;
 	padding : 2px;
 	display: inline-block;
-	
+
 
 }
 .charts div{
@@ -209,8 +209,8 @@ li button{
 
 
 .line_chart_age_genre{
-    height: 100%;
-    width: 50%;
+	height: 100%;
+	width: 50%;
 }
 #chartscontainer{
 	display: flex;
@@ -221,10 +221,10 @@ li button{
 }
 .nomapcharts{
 	height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
 
 }
 
@@ -246,13 +246,14 @@ li button{
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	margin-left: 2vw;
 }
 .modes_ecoute_legend > div {
 	height: 5%;
 }
 
 
-.checkbox_label {
+.checkbox_label_modes_ecoute {
 	display: block;
 	position: relative;
 	padding-left: 35px;
@@ -261,7 +262,7 @@ li button{
 	cursor: pointer;
 	font-size: 15px;
 	font-family: 'MarrSans', Helvetica, arial, serif;
-	font-weight: 500;
+	font-weight: 400;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
@@ -269,7 +270,7 @@ li button{
 }
 
 /* Hide the browser's default checkbox */
-.checkbox_label input {
+.checkbox_label_modes_ecoute input {
 	position: absolute;
 	opacity: 0;
 	cursor: pointer;
@@ -282,20 +283,18 @@ li button{
 	position: absolute;
 	top: 0;
 	left: 0;
-	height: 25px;
-	width: 25px;
-	background-color: #AAAAAA;
+	height: 23px;
+	width: 23px;
+	border-radius: 5px;
+	box-sizing: border-box;
+	border: 2px solid;
 }
 
 /* On mouse-over, add a grey background color */
-.checkbox_label:hover input ~ .checkmark {
-	background-color: #ccc;
+.checkbox_label_modes_ecoute:hover input ~ .checkmark {
+	background-color: #ddd;
 }
 
-/* When the checkbox is checked, add a blue background */
-.checkbox_label input:checked ~ .checkmark {
-	background-color: #219600;
-}
 
 /* Create the checkmark/indicator (hidden when not checked) */
 .checkmark:after {
@@ -305,16 +304,16 @@ li button{
 }
 
 /* Show the checkmark when checked */
-.checkbox_label input:checked ~ .checkmark:after {
+.checkbox_label_modes_ecoute input:checked ~ .checkmark:after {
 	display: block;
 }
 
 /* Style the checkmark/indicator */
-.checkbox_label .checkmark:after {
-	left: 9px;
-	top: 5px;
-	width: 5px;
-	height: 10px;
+.checkbox_label_modes_ecoute .checkmark:after {
+	left: 36%;
+	top: 20%;
+	width: 20%;
+	height: 40%;
 	border: solid white;
 	border-width: 0 3px 3px 0;
 	-webkit-transform: rotate(45deg);
@@ -325,10 +324,82 @@ li button{
 
 
 
+/* genresage */
+
+.modes_genresage_legend{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-left: 2vw;
+}
+
+.checkbox_label_genresage {
+	display: block;
+	position: relative;
+	padding-left: 35px;
+	padding-bottom: 10px;
+	margin-bottom: 5px;
+	cursor: pointer;
+	font-size: 14px;
+	font-family: 'MarrSans', Helvetica, arial, serif;
+	font-weight: 400;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.checkbox_label_genresage input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+}
+
+.checkmark_genresage {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 20px;
+	width: 20px;
+	border-radius: 5px;
+	box-sizing: border-box;
+	border: 2px solid;
+}
+
+.checkmark_genresage:after {
+	content: "";
+	position: absolute;
+	display: none;
+}
+
+.checkbox_label_genresage:hover input ~ .checkmark_genresage {
+	background-color: #ddd;
+}
+
+.checkbox_label_genresage input:checked ~ .checkmark_genresage:after {
+	display: block;
+}
+
+.checkbox_label_genresage .checkmark_genresage:after {
+	left: 32%;
+	top: 18%;
+	width: 20%;
+	height: 40%;
+	border: solid white;
+	border-width: 0 3px 3px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+
+
 @font-face {
-    font-family: "MarrSans";
-    src:
-            url("visuals/fonts/MarrSans-Regular-Web.woff2") format("woff2"),
-            url("visuals/fonts/MarrSans-Semibold-Web.woff2") format("woff2"),
-            url("visuals/fonts/MarrSans-Medium-Web.woff2") format("woff2");
+	font-family: "MarrSans";
+	src:
+			url("visuals/fonts/MarrSans-Regular-Web.woff2") format("woff2"),
+			url("visuals/fonts/MarrSans-Semibold-Web.woff2") format("woff2"),
+			url("visuals/fonts/MarrSans-Medium-Web.woff2") format("woff2");
 }

@@ -59,7 +59,7 @@ const AGE_modeEcouteByAgeApp = ["15-24", "25-34", "35-49", "50-64", "65+"];
 const OFTEN_modeEcouteByAgeApp = false;
 
 //Import data
-let dataP_modeEcouteByAgeApp = d3.csv("./small_data.csv"); // dataP pour data Promise
+let dataP_modeEcouteByAgeApp = d3.csv("/small_data.csv"); // dataP pour data Promise
 
 let musicData_modeEcouteByAgeApp = {};
 let datasetsValue_modeEcouteByAgeApp = [];
@@ -117,13 +117,17 @@ dataP_modeEcouteByAgeApp.then(function (csv) {
                 mode: 'nearest',
                 intersect: true
             },
-            legend:{
+            legend: {
+                display: false,
+                /*
                 labels:{
+
                     fontColor: legendLabels_modeEcouteByAgeApp.fontColor,
                     fontStyle: legendLabels_modeEcouteByAgeApp.fontStyle,
                     fontSize: legendLabels_modeEcouteByAgeApp.fontSize,
                     fontFamily: legendLabels_modeEcouteByAgeApp.fontFamily
                 }
+                */
             },
             scales: {
                 xAxes: [{
@@ -168,22 +172,31 @@ dataP_modeEcouteByAgeApp.then(function (csv) {
     let chartLine = new Chart(ctx, config);
     chartLine.update();
 
+
     //CHANGES FOR LEGEND
 
     MODES_modeEcouteByAgeApp.forEach(function (mode, index ){
         let label_id = "check_ecoute_" + mode
         document.getElementById(label_id+ "_label").style.color = chartLine.data.datasets[index].backgroundColor;
-        document.getElementById(label_id+ "_checkmark").style.backgroundColor = chartLine.data.datasets[index].backgroundColor;
+        document.getElementById(label_id+ "_checkmark").style.border = "3px solid " + chartLine.data.datasets[index].backgroundColor;
         let legend_checkbox = document.getElementById("check_ecoute_" + mode);
+        if (legend_checkbox.checked) {
+            document.getElementById(label_id+ "_checkmark").style.backgroundColor = chartLine.data.datasets[index].backgroundColor;
+        } else {
+            document.getElementById(label_id+ "_checkmark").style.backgroundColor = "rgba(255, 255, 255, 0)";
+        }
         legend_checkbox.addEventListener('change', function () {
             if (this.checked) {
                 chartLine.data.datasets[index].hidden = false;
+                document.getElementById(label_id+ "_checkmark").style.backgroundColor = chartLine.data.datasets[index].backgroundColor;
             } else {
                 chartLine.data.datasets[index].hidden = true;
+                document.getElementById(label_id+ "_checkmark").style.backgroundColor = "rgba(255, 255, 255, 0)";
             }
             chartLine.update();
         });
     });
+
 
 });
 
