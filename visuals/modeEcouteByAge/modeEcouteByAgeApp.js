@@ -59,7 +59,7 @@ const AGE_modeEcouteByAgeApp = ["15-24", "25-34", "35-49", "50-64", "65+"];
 const OFTEN_modeEcouteByAgeApp = false;
 
 //Import data
-let dataP_modeEcouteByAgeApp = d3.csv("/small_data.csv"); // dataP pour data Promise
+let dataP_modeEcouteByAgeApp = d3.csv("./small_data.csv"); // dataP pour data Promise
 
 let musicData_modeEcouteByAgeApp = {};
 let datasetsValue_modeEcouteByAgeApp = [];

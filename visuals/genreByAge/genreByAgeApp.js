@@ -65,7 +65,7 @@ const GENRES_genreByAgeApp = ["Rap", "Classique", "Variété", "PopRock", "Autre
 const AGE_genreByAgeApp = ["15-24", "25-34", "35-49", "50-64", "65+"];
 
 //Import data
-let dataP_genreByAgeApp = d3.csv("/small_data.csv"); // dataP pour data Promise
+let dataP_genreByAgeApp = d3.csv("./small_data.csv"); // dataP pour data Promise
 
 let musicData_genreByAgeApp = {};
 let datasetsValue_genreByAgeApp = [];
