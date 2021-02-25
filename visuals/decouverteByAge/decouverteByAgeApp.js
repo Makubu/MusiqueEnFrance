@@ -122,7 +122,7 @@ dataP_decouverteByAgeApp.then(function (csv) {
                 intersect: true
             },
             legend:{
-
+                display: false,
                 labels:{
                     fontColor: legendLabels_decouverteByAgeApp.fontColor,
                     fontStyle: legendLabels_decouverteByAgeApp.fontStyle,
@@ -162,6 +162,27 @@ dataP_decouverteByAgeApp.then(function (csv) {
     let radarChart = new Chart(ctx, config);
     radarChart.update();
 
+    AGE_decouverteByAgeApp.forEach(function (age, index ){
+        let label_id = "check_decouverte_" + age
+        document.getElementById(label_id+ "_label").style.color = radarChart.data.datasets[index].borderColor;
+        document.getElementById(label_id+ "_checkmark").style.border = "3px solid " + radarChart.data.datasets[index].borderColor;
+        let legend_checkbox = document.getElementById("check_decouverte_" + age);
+        if (legend_checkbox.checked) {
+            document.getElementById(label_id+ "_checkmark").style.backgroundColor = radarChart.data.datasets[index].backgroundColor;
+        } else {
+            document.getElementById(label_id+ "_checkmark").style.backgroundColor = "rgba(255, 255, 255, 0)";
+        }
+        legend_checkbox.addEventListener('change', function () {
+            if (this.checked) {
+                radarChart.data.datasets[index].hidden = false;
+                document.getElementById(label_id+ "_checkmark").style.backgroundColor = radarChart.data.datasets[index].backgroundColor;
+            } else {
+                radarChart.data.datasets[index].hidden = true;
+                document.getElementById(label_id+ "_checkmark").style.backgroundColor = "rgba(255, 255, 255, 0)";
+            }
+            radarChart.update();
+        });
+    });
 
 });
 
