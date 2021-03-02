@@ -1,45 +1,57 @@
-html {
-	height: 100%; overflow:auto;
-	scroll-behavior: smooth;
-	margin :0;
-	padding : 0;
+html { 
+height: 100%; overflow:auto; 
+scroll-behavior: smooth;
+margin :0;
+padding : 0;
 }
 
-body {
-	height: 100%;
-	margin :0;
-	padding : 0;
-	background: #FDFDFD;
+body { 
+height: 100%;
+margin :0;
+padding : 0; 
+background: #FDFDFD;
 }
 
 canvas{
 	display: inherit;
 }
 
-h1 {
-	display : inline-block;
-	color : #444F59;
-	font-family: MarrSans;
-	text-align: center;
-	border-style : solid;
-	border-width: medium;
-	border-color : #FD999A;
-	padding : 10px;
+h1 { 
+  display : inline-block;
+  color : #444F59;
+  font-family: MarrSans;
+  text-align: center;
+  border-style : solid;
+  border-width: medium;
+  border-color : #FD999A;
+  padding : 10px;
 }
 
 h2{
 	font-family: MarrSans;
-	color : white;
+	color : #FD999A;
 }
+
+h3{
+	font-family: MarrSans;
+	color : #444F59;
+}
+
+#preztext p {
+	font-family: MarrSans;
+	color:#444F59;
+	transition: all 1.5s;
+}
+
 button{
 	cursor: pointer;
 }
 
 p {
-	font-family: MarrSans;
-	color : #444F59;
-	text-align: center;
-	vertical-align: middle;
+  font-family: MarrSans;
+  color: #444F59;
+  text-align: center;
+  vertical-align: middle;
 }
 
 select option{
@@ -68,7 +80,7 @@ button.start{
 }
 
 button.start:hover img{
-
+	
 }
 
 
@@ -97,7 +109,7 @@ div.info_insights{
 .center{
 	position: relative;
 	display : flex;
-	justify-content: center;
+	justify-content: center;	
 	transition-duration: 5s;
 	transition-property: left;
 
@@ -122,15 +134,71 @@ div.home{
 	text-align: center;
 	display: flex;
 	justify-content: center;
-	flex-direction: column;
+	flex-direction: column;	
 	height: 100%;
 
 }
+
+div.disclaimer{
+	z-index: 1;
+	height: 100%;
+	opacity: 100%;
+	background: #FDFDFD;
+	position: absolute;
+	display: flex;	
+	flex-direction: column;	
+	justify-content: center;
+	align-content: center;	
+	text-align: center;
+	transition: all 2s;
+}
+
+.commencer{
+	border-radius: 4px;
+	background-color: #FD999A;
+	border: none;
+	color: #FDFDFD;
+	text-align: center;
+	font-size: 28px;
+	padding: 20px;
+	transition: all 0.5s;
+	cursor: pointer;
+	margin: 5px;
+	width: 35%;
+}
+
+.commencer span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.commencer span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.commencer:hover span {
+  padding-right: 25px;
+}
+
+.commencer:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+
 div.viz{
 	height: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
+	position: relative;
 }
 
 div.charts{
@@ -138,6 +206,11 @@ div.charts{
 	flex-direction: row;
 	justify-content: center;
 	height: 100%;
+}
+#mapcharts div{
+	display: flex;
+	flex-direction: column;	
+	justify-content: center;
 }
 
 div ul {
@@ -159,14 +232,21 @@ ul li{
 	display: flex;
 	padding : 2px;
 	display: inline-block;
-
+	
 
 }
-.charts div{
+.mapside{
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 }
+
+.map{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
 
 .open {
 	visibility : visible;
@@ -197,11 +277,7 @@ li button{
 
 }
 
-.infomap{
-	transition-duration: 5s;
-	transition-property: left;
-	left: -28%;
-}
+
 
 .hidden{
 	display: none !important;
@@ -209,8 +285,8 @@ li button{
 
 
 .line_chart_age_genre{
-	height: 100%;
-	width: 50%;
+    height: 100%;
+    width: 50%;
 }
 #chartscontainer{
 	display: flex;
@@ -218,13 +294,14 @@ li button{
 	justify-content: center;
 	height: 90%;
 	border-left : 15px solid #FDFDFD;
+	border-right : 15px solid #FDFDFD;
 }
 .nomapcharts{
 	height: 100%;
-	width: 100%;
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 
 }
 
@@ -234,7 +311,11 @@ li button{
 
 }
 
+.transition_charts{
+	width : 100% !important;
+	opacity: 100% !important;
 
+}
 
 
 
@@ -464,12 +545,26 @@ li button{
 	transform: rotate(45deg);
 }
 
+.newdiv{
+	height: 100%;
+	width: 0%;
+	transition: all .5s;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+}
+
+
+
+
+
 
 
 @font-face {
-	font-family: "MarrSans";
-	src:
-			url("visuals/fonts/MarrSans-Regular-Web.woff2") format("woff2"),
-			url("visuals/fonts/MarrSans-Semibold-Web.woff2") format("woff2"),
-			url("visuals/fonts/MarrSans-Medium-Web.woff2") format("woff2");
+    font-family: "MarrSans";
+    src:
+            url("visuals/fonts/MarrSans-Regular-Web.woff2") format("woff2"),
+            url("visuals/fonts/MarrSans-Semibold-Web.woff2") format("woff2"),
+            url("visuals/fonts/MarrSans-Medium-Web.woff2") format("woff2");
 }

@@ -52,15 +52,16 @@ paths.forEach(function (path) {
 
 document.addEventListener('mousedown', hideMapInfo);
 function hideMapInfo(event) {
-    if (!event.target.classList.contains('is-clicked')) {
-        
+    if (!event.target.classList.contains('is-clicked') && !event.target.classList.contains('chartjs-render-monitor')) {
+
         document.querySelectorAll(".is-clicked").forEach(function (path) {
             path.classList.remove("is-clicked");
 
-        let map_inf = document.querySelector('#chart_div');
-        map_inf.innerHTML = "<canvas id=\"bar_chart_canvas\" width=\"400\" height=\"400\"></canvas>";
-        let charts_div = document.getElementById("mapcharts");
-        charts_div.removeChild(document.getElementById("additional_chart"));
+            let map_inf = document.querySelector('#chart_div');
+            map_inf.innerHTML = "<canvas id=\"bar_chart_canva\" width=\"400\" height=\"400\"></canvas>";
+            let charts_div = document.getElementById("mapcharts");
+            document.getElementById("additional_chart").style.width=0;
+            setTimeout(function(){charts_div.removeChild(document.getElementById("additional_chart"));},200);
 
         })
     }
@@ -194,13 +195,25 @@ function displayGenreByRegion(genre) {
             if(insight_etudie != 0){
                 return;
             }
+            
             let map_chart_div = document.createElement("div");
             let sdiv = document.createElement("div");
             map_chart_div.class = "map_chart";
             map_chart_div.id = "additional_chart";
             sdiv.id = "chart_div";
+
+            map_chart_div.style.width="0px";
+            map_chart_div.style.height="100%";
+            map_chart_div.style.opacity="0%";
+            map_chart_div.style.transition = "all .3s";
             map_chart_div.appendChild(sdiv);
             charts_div.appendChild(map_chart_div);
+
+            setTimeout(function(){map_chart_div.style.opacity="100%";
+            map_chart_div.style.width="500px"}, 1);
+            
+
+
             let id = this.id;
             d3.select(this).raise();
             document.querySelectorAll(".is-clicked").forEach(function (path) {
@@ -285,7 +298,11 @@ function displayGenreByRegion(genre) {
             };
 
             let ctx = document.getElementById("bar_chart_canvas").getContext("2d");
-            let chartLine = new Chart(ctx, config);
+            
+            setTimeout(function(){let chartLine = new Chart(ctx, config)},200);
+
+            
+            
         }
 
         // Remove former eventListener

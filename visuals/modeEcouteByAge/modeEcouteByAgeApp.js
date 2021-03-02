@@ -117,17 +117,14 @@ dataP_modeEcouteByAgeApp.then(function (csv) {
                 mode: 'nearest',
                 intersect: true
             },
-            legend: {
+            legend:{
                 display: false,
-                /*
                 labels:{
-
                     fontColor: legendLabels_modeEcouteByAgeApp.fontColor,
                     fontStyle: legendLabels_modeEcouteByAgeApp.fontStyle,
                     fontSize: legendLabels_modeEcouteByAgeApp.fontSize,
                     fontFamily: legendLabels_modeEcouteByAgeApp.fontFamily
                 }
-                */
             },
             scales: {
                 xAxes: [{
@@ -172,8 +169,6 @@ dataP_modeEcouteByAgeApp.then(function (csv) {
     let chartLine = new Chart(ctx, config);
     chartLine.update();
 
-
-    //CHANGES FOR LEGEND
 
     MODES_modeEcouteByAgeApp.forEach(function (mode, index ){
         let label_id = "check_ecoute_" + mode
