@@ -1,7 +1,7 @@
 var insight_etudie = 0;
 var x;
 var parcourir;
-var insights = ["Carte des genres (Age)", "Genres selon la classe d'age", "Carte des genres (CSP)", "Modes d'écoute", "Découverte de la musique"];
+var insights = ["Carte des genres (Age)", "Genres selon la classe d'age", "Multiples cartes", "Modes d'écoute", "Découverte de la musique"];
 
 const texts = [
 ["<p>Centre Val de Loire, terre de rave party ? En tout cas, c’est une des régions où l’électro est la plus écoutée, et cela grâce à une percée exceptionnelle du genre chez les 15-24 ans : 40% de cette classe d’âge écoute de l’électro sur le territoire!</p><p>N’hésitez pas à cliquer sur différentes régions !</p>","<p>Info2</p>","<p>Info3</p>","<p>Info4</p>","<p>La géographie, c’est pas trop votre truc ? Cliquez ici pour voir le graph de répartitions des genres par âge sur toute la France : vous allez voir c’est surprenant!</p>"],
@@ -15,9 +15,8 @@ const texts = [
 ["<p>La musique, c’était mieux avant… ou c’était juste écouté par une base d’auditeurs plus réduite ? Ce que semble montrer ce graph, c’est que les jeunes utilisent plus de supports, et plus de supports différents. Et qu’ils se distinguent surtout sur les plateformes nouvelles et numériques comme le streaming ou les sites vidéos. Cela veut-il dire que ces plateformes ont élargi l’accès à une base plus large d’auditeurs ? Cela peut-il expliquer l’émergence de nouveaux artistes basés sur ces nouveaux canaux, bouleversant les standards culturels ? Il n’y a qu’un pas…</p>","<p>Info2</p>","<p>Info3</p>"]
 ]
 
-var corresponding_ids = ["mapcharts", "genresage", "mapcharts","modes_ecoute","decouverte"];
+var corresponding_ids = ["mapcharts", "genresage", "several_map_container","modes_ecoute","decouverte"];
 var paused = true;
-
 
 function scrollstart(){
 	scroll(0,100000);
@@ -36,15 +35,17 @@ function commencer(){
 }
 
 function update(){
-	document.getElementById("insight").innerHTML = insights[insight_etudie];
+	
 	for (var i=0; i<5 ; i++){
 		if(!(document.getElementById(corresponding_ids[i]).classList.contains("hidden"))){
 			document.getElementById(corresponding_ids[i]).classList.add("hidden");
 		}	
 	}
+	document.getElementById("insight").innerHTML = insights[insight_etudie];
 	document.getElementById(corresponding_ids[insight_etudie]).classList.remove("hidden");
 	if(!paused){
 		removetext();
+		clearInterval(x);
 		setTimeout(addtext(),1000);
 	}
 }
@@ -160,7 +161,6 @@ function addtext(){
 	button.innerHTML="<span> En savoir plus </span>";
 
 	function firstclick(){
-		console.log("stop");
 		clearInterval(x);
 		newdiv.innerHTML="";
 		var button_2 = document.createElement("button");
@@ -179,13 +179,14 @@ function addtext(){
 	
 
 	divtext.innerHTML = "<h3>Le saviez vous ?</h3>"+texts[insight_etudie][0];
-	newdiv.appendChild(divtext);
+	
 	
 	newdiv.classList.add("moreinfos");
 	buttondiv.appendChild(button);
-	newdiv.appendChild(buttondiv);
+	
 	div.appendChild(newdiv);
-	setTimeout(function(){newdiv.style.width = "100%"},10);
+	
+	setTimeout(function(){newdiv.style.width = "100%"; newdiv.appendChild(divtext); newdiv.appendChild(buttondiv); },100);
 	parcourir = 0;
 	x = setInterval(function(){defile();},4000);
 	button.addEventListener("click", function(){firstclick()});
@@ -195,10 +196,9 @@ function addtext(){
 function removetext(){
 	infosdiv = document.getElementById("infos");
 	infosdiv.style.width = "0%";
-	console.log(infosdiv.children.length);
 	
 	setTimeout(function(){infosdiv.innerHTML="";
-		document.getElementById("chartscontainer").removeChild(document.getElementById("infos"));},400);
+		document.getElementById("chartscontainer").removeChild(document.getElementById("infos"));},300);
 	
 	paused = !paused;
 }

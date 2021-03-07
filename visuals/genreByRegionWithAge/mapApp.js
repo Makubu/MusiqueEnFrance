@@ -69,7 +69,7 @@ function hideMapInfo(event) {
 
 
 //Import data
-let dataP = d3.csv("./small_data.csv"); // dataP pour data Promise
+let dataP = d3.csv("http://localhost:8000/small_data.csv"); // dataP pour data Promise
 
 //To keep track of the listeners
 let currentListners = {};
@@ -195,22 +195,26 @@ function displayGenreByRegion(genre) {
             if(insight_etudie != 0){
                 return;
             }
+            if(!document.getElementById('additional_chart')){
+                let map_chart_div = document.createElement("div");
+                let sdiv = document.createElement("div");
+                map_chart_div.class = "map_chart";
+                map_chart_div.id = "additional_chart";
+                sdiv.id = "chart_div";
+
+                map_chart_div.style.width="0px";
+                map_chart_div.style.height="100%";
+                map_chart_div.style.opacity="0%";
+                map_chart_div.style.transition = "all .3s";
+                map_chart_div.appendChild(sdiv);
+                charts_div.appendChild(map_chart_div);
+
+                setTimeout(function(){map_chart_div.style.opacity="100%";
+                map_chart_div.style.width="500px"}, 1);
+
+            };
             
-            let map_chart_div = document.createElement("div");
-            let sdiv = document.createElement("div");
-            map_chart_div.class = "map_chart";
-            map_chart_div.id = "additional_chart";
-            sdiv.id = "chart_div";
-
-            map_chart_div.style.width="0px";
-            map_chart_div.style.height="100%";
-            map_chart_div.style.opacity="0%";
-            map_chart_div.style.transition = "all .3s";
-            map_chart_div.appendChild(sdiv);
-            charts_div.appendChild(map_chart_div);
-
-            setTimeout(function(){map_chart_div.style.opacity="100%";
-            map_chart_div.style.width="500px"}, 1);
+            
             
 
 

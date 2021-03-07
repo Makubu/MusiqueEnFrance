@@ -5,26 +5,58 @@ fonciton de la data qu'on affiche sur la map.
 
 
 :root {
-    --base: #F98888;
+    --base: #cbcbcb;
     --stroke: #FFFFFF;
     --active-stroke: #604545;
     --clicked-stroke: #402525;
     --active-color: #f43838;
     --transition-time: 0.4s;
 }
-
-.map_image{
-    float: left;
-    height: 500px;
-    width: 500px;
+.several_map_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    height: 100%
 }
 
-.map_image svg{
+.map_column{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+}
+.small_map{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 50%;
+    width: 100%;
+
+}
+
+
+.small_map_image{
+    display: inline;
+    height: 100%;
+    width: 100%;
+
+
+
+}
+
+.small_map_image path{
+    transform: scale(0.6);
+    transform-origin: 50% 0%;
+
+}
+
+.small_map_image svg{
     height: inherit;
     width: inherit;
+ 
 }
 
-.map_chart{
+.small_map_chart{
     width: 50%;
     display: flex;
     align-items: flex-start;
@@ -32,11 +64,10 @@ fonciton de la data qu'on affiche sur la map.
 }
 
 
-.map_legend, .legendTitle{
+.map_legend_sev, .legendTitle{
     display: flex;
     justify-content: left;
-    width :260;
-
+    width: 15%;
     font-style: normal;
     font-variant-ligatures: normal;
     font-variant-caps: normal;
@@ -50,30 +81,9 @@ fonciton de la data qu'on affiche sur la map.
 
 }
 
-.select_genre{
-    background-color: #FD999A;
-    border : none;
-    color: white;
-    appearance : none;
-    background: url(../../icons/music_note.svg) 96% / 15% no-repeat #FD999A;
-    animation: clignote 2s infinite;
-    transition-property: background;
-    transition-duration: 2s;
-    height: 30px;
-    cursor: pointer;
-    font-family: 'MarrSans', Helvetica, arial, serif;
-    padding : 4px;
-}
-
-@keyframes clignote{
-
-    50% {background: 96% / 15% no-repeat #FD999A}
-
-}
-
 
 /* Don't touch*/
-.map_image path{
+.small_map_image path{
     fill: var(--base);
     stroke: var(--stroke);
     stroke-width: 1px;
@@ -81,7 +91,7 @@ fonciton de la data qu'on affiche sur la map.
 }
 
 /* Don't touch*/
-.map_image path.is-active{
+.small_map_image path.is-active{
     fill: var(--active-color);
     stroke: var(--active-stroke);
     stroke-width: 2px;
@@ -94,7 +104,7 @@ fonciton de la data qu'on affiche sur la map.
 }
 
 /* Don't touch*/
-.map_image path.is-clicked{
+.small_map_image path.is-clicked{
     fill: var(--active-color);
     stroke: var(--clicked-stroke);
     stroke-width: 3px;

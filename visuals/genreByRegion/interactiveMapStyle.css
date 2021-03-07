@@ -34,8 +34,7 @@ fonciton de la data qu'on affiche sur la map.
 
 .map_legend, .legendTitle{
     display: flex;
-    justify-content: left;
-    width :260;
+    justify-content: right;
 
     font-style: normal;
     font-variant-ligatures: normal;
@@ -47,27 +46,6 @@ fonciton de la data qu'on affiche sur la map.
     font-size: 12px;
     line-height: normal;
     font-family: 'MarrSans', Helvetica, arial, serif;
-
-}
-
-.select_genre{
-    background-color: #FD999A;
-    border : none;
-    color: white;
-    appearance : none;
-    background: url(../../icons/music_note.svg) 96% / 15% no-repeat #FD999A;
-    animation: clignote 2s infinite;
-    transition-property: background;
-    transition-duration: 2s;
-    height: 30px;
-    cursor: pointer;
-    font-family: 'MarrSans', Helvetica, arial, serif;
-    padding : 4px;
-}
-
-@keyframes clignote{
-
-    50% {background: 96% / 15% no-repeat #FD999A}
 
 }
 

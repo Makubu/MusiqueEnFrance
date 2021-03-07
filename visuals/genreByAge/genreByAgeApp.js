@@ -124,7 +124,7 @@ dataP_genreByAgeApp.then(function (csv) {
                 intersect: true
             },
             legend:{
-                display:false,
+                display: false,
                 labels:{
                     fontColor: legendLabels_genreByAgeApp.fontColor,
                     fontStyle: legendLabels_genreByAgeApp.fontStyle,
@@ -176,9 +176,6 @@ dataP_genreByAgeApp.then(function (csv) {
     let chartLine = new Chart(ctx, config);
     chartLine.update();
 
-
-    //CHANGES FOR LEGEND
-
     GENRES_genreByAgeApp.forEach(function (genre, index ){
         let label_id = "check_genresage_" + genre
         document.getElementById(label_id+ "_label").style.color = chartLine.data.datasets[index].backgroundColor;
@@ -200,6 +197,8 @@ dataP_genreByAgeApp.then(function (csv) {
             chartLine.update();
         });
     });
+
+
 
 });
 
