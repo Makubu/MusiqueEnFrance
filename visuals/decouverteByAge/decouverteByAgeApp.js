@@ -160,7 +160,7 @@ dataP_decouverteByAgeApp.then(function (csv) {
 
     let ctx = document.getElementById("line_chart_div_canvas_decouverte").getContext("2d");
     let radarChart = new Chart(ctx, config);
-    radarChart.update();
+
 
     AGE_decouverteByAgeApp.forEach(function (age, index ){
         let label_id = "check_decouverte_" + age

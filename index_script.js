@@ -47,6 +47,10 @@ function update(){
 		removetext();
 		clearInterval(x);
 		setTimeout(addtext(),1000);
+		setTimeout(function (){
+			for (var id in Chart.instances) {
+				Chart.instances[id].resize();
+			}},1000);
 	}
 }
 
@@ -111,6 +115,9 @@ function more(){
 		playpause.appendChild(img);
 
 	}
+	for (var id in Chart.instances) {
+		Chart.instances[id].resize();
+	}
 }
 
 
@@ -135,12 +142,17 @@ function defile(){
 
 
 	setTimeout(function(){
-		
 		parent.removeChild(parent.children[0]);
 		var div_newtext = document.createElement("div");
 		div_newtext.innerHTML="<h3>Le saviez vous ?</h3>"+newtext;
 		parent.prepend(div_newtext);
+		for (var id in Chart.instances) {
+			Chart.instances[id].resize();
+		}
 	},1000);
+	for (var id in Chart.instances) {
+		Chart.instances[id].resize();
+	}
 
 };
 
@@ -188,9 +200,17 @@ function addtext(){
 	
 	setTimeout(function(){newdiv.style.width = "100%"; newdiv.appendChild(divtext); newdiv.appendChild(buttondiv); },100);
 	parcourir = 0;
-	x = setInterval(function(){defile();},4000);
+	x = setInterval(function(){
+		defile();
+		for (var id in Chart.instances) {
+			Chart.instances[id].resize();
+		}
+		},4000);
 	button.addEventListener("click", function(){firstclick()});
 	paused = !paused;
+	for (var id in Chart.instances) {
+		Chart.instances[id].resize();
+	}
 }
 
 function removetext(){
@@ -201,6 +221,9 @@ function removetext(){
 		document.getElementById("chartscontainer").removeChild(document.getElementById("infos"));},300);
 	
 	paused = !paused;
+	for (var id in Chart.instances) {
+		Chart.instances[id].resize();
+	}
 }
 
 

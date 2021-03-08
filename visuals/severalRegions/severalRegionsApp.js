@@ -182,7 +182,7 @@ function displaySmallMaps(genres) {
 }
 
 function check_inactive(){
-    paths.forEach(function (paths, map_index) {
+    paths_.forEach(function (paths, map_index) {
         if (document.getElementById("select_genre_" + (map_index + 1)).value === "Genre Musical") {
             paths.forEach(function (path){
                 document.getElementById(path.id).style.fill = '#cbcbcb';
@@ -198,13 +198,8 @@ function getGenres(){
         document.getElementById("select_genre_4").value
     ];
 
-    console.log(genres)
-
     return genres;
 }
-
-
-displaySmallMaps(getGenres());
 
 document.getElementById("select_genre_1").addEventListener('change', (event) => {
     displaySmallMaps(getGenres())

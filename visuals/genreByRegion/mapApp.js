@@ -389,7 +389,7 @@ paths_mapAppCSP.forEach(function (path) {
 
 
 //Import data
-let dataP_mapAppCSP = d3.csv("http://localhost:8000/small_data.csv"); // dataP pour data Promise
+let dataP_mapAppCSP = d3.csv("./small_data.csv"); // dataP pour data Promise
 
 //To keep track of the listeners
 let currentListners_mapAppCSP = {};
