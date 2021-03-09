@@ -219,7 +219,7 @@ function displayGenreByRegion(genre) {
             };
 
             setTimeout(function(){map_chart_div.style.opacity="100%";
-                map_chart_div.style.width="450px"}, 1);
+                map_chart_div.style.width="400px"}, 1);
 
 
 
