@@ -35,7 +35,7 @@ fonciton de la data qu'on affiche sur la map.
 .map_legend, .legendTitle{
     display: flex;
     justify-content: left;
-    width :260;
+    width :260px;
 
     font-style: normal;
     font-variant-ligatures: normal;

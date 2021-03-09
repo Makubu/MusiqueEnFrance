@@ -3,7 +3,8 @@ const paths = map.querySelectorAll('.map_image path');
 
 const color1 = "rgb(244, 220, 213)"; //color for map: interpolation between color1 and color2
 const color2 = "rgb(244, 56, 56)";
-
+const innerCanvas_age = '<canvas id=\"bar_chart_canvas_age\" width=\"400\" height=\"250\"class=\"is-clicked\"></canvas>';
+const innerCanvas_csp = '<canvas id=\"bar_chart_canvas_csp\" width="400" height="250" class=\"is-clicked\"></canvas>';
 //Color of the bars !!!!!!!!!!!!!!!!!!!!!!!
 const chartColor = '#CBCBCB';
 
@@ -54,20 +55,38 @@ document.addEventListener('mousedown', hideMapInfo_age);
 
 
 function hideMapInfo_age(event) {
-    if (!event.target.classList.contains('is-clicked')) {
-        document.querySelectorAll(".is-clicked").forEach(function (path) {
-            path.classList.remove("is-clicked");
-        })
+    if (paused) {
+        if (!event.target.classList.contains('is-clicked')) {
+            document.querySelectorAll(".is-clicked").forEach(function (path) {
+                path.classList.remove("is-clicked");
+            })
 
-    if (document.getElementById("additional_chart") != null) {
-        let map_inf = document.querySelector('#chart_div_age');
-        map_inf.innerHTML = "<canvas id=\"bar_chart_canvas_age\" width=\"400\" height=\"250\" class=\"is-clicked\"></canvas>";
-        let map_inf_csp = document.querySelector('#chart_div_csp');
-        map_inf_csp.innerHTML = "<canvas id=\"bar_chart_canvas_csp\" width=\"400\" height=\"250\" class=\"is-clicked\"></canvas>";
-        let charts_div = document.getElementById("mapcharts");
-        document.getElementById("additional_chart").style.width = 0;
+            if (document.getElementById("additional_chart") != null) {
+                let map_inf = document.querySelector('#chart_div_age');
+                map_inf.innerHTML = innerCanvas_age;
+                let map_inf_csp = document.querySelector('#chart_div_csp');
+                map_inf_csp.innerHTML = innerCanvas_csp;
+                let charts_div = document.getElementById("mapcharts");
+                document.getElementById("additional_chart").style.width = 0;
+            }
+
         }
+    }else{
+        if ((!event.target.classList.contains('is-clicked')) && (!event.target.tagName === "path")) {
+            document.querySelectorAll(".is-clicked").forEach(function (path) {
+                path.classList.remove("is-clicked");
+            })
 
+            if (document.getElementById("additional_chart") != null) {
+                let map_inf = document.querySelector('#chart_div_age');
+                map_inf.innerHTML = innerCanvas_age;
+                let map_inf_csp = document.querySelector('#chart_div_csp');
+                map_inf_csp.innerHTML = innerCanvas_csp;
+                let charts_div = document.getElementById("mapcharts");
+                document.getElementById("additional_chart").style.width = 0;
+            }
+
+        }
     }
 }
 
@@ -219,7 +238,7 @@ function displayGenreByRegion(genre) {
             };
 
             setTimeout(function(){map_chart_div.style.opacity="100%";
-                map_chart_div.style.width="400px"}, 1);
+                map_chart_div.style.width="30%"}, 1);
 
 
 
@@ -233,9 +252,12 @@ function displayGenreByRegion(genre) {
 
             let region = getRegionName(id);
             let map_inf_age = document.querySelector('#chart_div_age');
-            map_inf_age.innerHTML = "<canvas id=\"bar_chart_canvas_age\" width=\"400\" height=\"250\" class=\"is-clicked\"></canvas>";
+            map_inf_age.innerHTML = innerCanvas_age;
             //let map_inf_csp = document.querySelector('#chart_div_age_csp');
             //map_inf_csp.innerHTML = "<canvas id=\"bar_chart_canvas_csp\" width=\"400\" height=\"400\"></canvas>";
+
+
+
             let config = {
                 type: 'bar',
                 data: {
@@ -256,6 +278,7 @@ function displayGenreByRegion(genre) {
                 },
                 options: {
                     responsive: true,
+                    maintainAspectRatio : false,
                     legend: { display: false },
                     title: {
                         display: true,
@@ -272,6 +295,7 @@ function displayGenreByRegion(genre) {
                             },
                             display: true,
                             ticks: {
+
                                 fontColor: axesTicks.fontColor,
                                 fontStyle: axesTicks.fontStyle,
                                 fontSize: axesTicks.fontSize,
@@ -288,6 +312,7 @@ function displayGenreByRegion(genre) {
                         }],
                         yAxes: [{
                             ticks: {
+
                                 fontColor: axesTicks.fontColor,
                                 fontStyle: axesTicks.fontStyle,
                                 fontSize: axesTicks.fontSize,
@@ -518,7 +543,13 @@ function displayGenreByRegion_mapAppCSP(genre) {
 
             let region = getRegionName(id);
             let map_inf = document.querySelector('#chart_div_csp');
-            map_inf.innerHTML = "<canvas id=\"bar_chart_canvas_csp\" width=\"400\" height=\"250\" class=\"is-clicked\"></canvas>";
+            map_inf.innerHTML = innerCanvas_csp;
+
+
+            let MystepSize = 10;
+            if ((Math.trunc(max_ratio_reg*10+1)*10) <= 30){
+                MystepSize = 5;
+            }
             let config = {
                 type: 'bar',
                 data: {
@@ -537,6 +568,7 @@ function displayGenreByRegion_mapAppCSP(genre) {
                 },
                 options: {
                     responsive: true,
+                    maintainAspectRatio : false,
                     legend: { display: false },
                     title: {
                         display: true,
@@ -569,6 +601,7 @@ function displayGenreByRegion_mapAppCSP(genre) {
                         }],
                         yAxes: [{
                             ticks: {
+                                stepSize: MystepSize,
                                 fontColor: axesTicks_mapAppCSP.fontColor,
                                 fontStyle: axesTicks_mapAppCSP.fontStyle,
                                 fontSize: axesTicks_mapAppCSP.fontSize,

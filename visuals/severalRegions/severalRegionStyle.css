@@ -24,6 +24,8 @@ fonciton de la data qu'on affiche sur la map.
     flex-direction: column;
     justify-content: center;
     width: 50%;
+    padding-top: 2vh;
+    padding-bottom: 1vh;
 }
 .small_map{
     display: flex;

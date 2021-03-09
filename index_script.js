@@ -104,7 +104,9 @@ function hideMenu(event){
 } 
 
 function more(){
+
 	if (paused) {
+
 		addtext();
 		var playpause = document.getElementById("playpause");
 		var img = document.createElement("img");
@@ -112,8 +114,21 @@ function more(){
 		playpause.innerHTML = "";
 		img.classList.add("playimg");
 		playpause.appendChild(img);
+		lc = document.querySelectorAll('.line_chart_age_genre');
+		lc.forEach(function (chart){
+			chart.classList.add("line_chart_age_genre_played")
+			chart.classList.remove("line_chart_age_genre")
+		})
+		for (var i=0; i<30; i++){
+			setTimeout(function (){
+				for (var id in Chart.instances) {
+					Chart.instances[id].resize();
+				}
+			}, i*5)
+		};
 	}
 	else{
+
 		removetext();
 		var playpause = document.getElementById("playpause");
 		var img = document.createElement("img");
@@ -121,7 +136,18 @@ function more(){
 		playpause.innerHTML = "";
 		img.classList.add("playimg");
 		playpause.appendChild(img);
-
+		lc = document.querySelectorAll('.line_chart_age_genre_played');
+		lc.forEach(function (chart){
+			chart.classList.add("line_chart_age_genre")
+			chart.classList.remove("line_chart_age_genre_played")
+		})
+		for (var i=0; i<100; i++){
+			setTimeout(function (){
+				for (var id in Chart.instances) {
+					Chart.instances[id].resize();
+				}
+			}, i*20)
+		};
 	}
 	
 };
@@ -278,9 +304,11 @@ function addtext(){
 	
 
 	divtext.innerHTML = "<h3>Le saviez vous ?</h3>"+texts[insight_etudie][0];
-	
+
 	
 	newdiv.classList.add("moreinfos");
+
+
 	
 	buttondiv.appendChild(button_next);
 	
@@ -288,12 +316,18 @@ function addtext(){
 	div.appendChild(newdiv);
 	
 	setTimeout(function(){
-		newdiv.style.width = "40%"; 
+		if(insight_etudie == 0 ){
+			newdiv.style.width = "50%";
+			newdiv.style.paddingRight = "3vw";
+		}
+		else{
+			newdiv.style.width = "65%";
+		};
 		newdiv.appendChild(divtext); 
 		newdiv.appendChild(buttondiv);
     },100);
 
-    
+
 
 
 
@@ -308,12 +342,10 @@ function removetext(){
 	infosdiv.style.width = "0%";
 	
 	infosdiv.addEventListener('transitionend', () => {
-        for (var id in Chart.instances) {
-            Chart.instances[id].resize();
-        }
-        console.log(paused);
         document.getElementById("chartscontainer").removeChild(document.getElementById("infos"));
-
+		for (var id in Chart.instances) {
+			Chart.instances[id].resize();
+		}
         
     });
 
@@ -325,6 +357,28 @@ document.addEventListener('transitionend', () => {
     for (var id in Chart.instances) {
         Chart.instances[id].resize();
     }
+
+	setTimeout(function (){
+		for (var id in Chart.instances) {
+			Chart.instances[id].resize();
+		}
+	}, 1)
+	setTimeout(function (){
+		for (var id in Chart.instances) {
+			Chart.instances[id].resize();
+		}
+	}, 10)
+	setTimeout(function (){
+		for (var id in Chart.instances) {
+			Chart.instances[id].resize();
+		}
+	}, 100)
+	setTimeout(function (){
+		for (var id in Chart.instances) {
+			Chart.instances[id].resize();
+		}
+	}, 300)
+
 });
 
 
