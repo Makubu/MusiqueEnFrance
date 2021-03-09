@@ -81,6 +81,10 @@ function displaySmallMaps(genres) {
                 })
 
             })
+        } else {
+            paths.forEach(function (path){
+                path.innerHTML="";
+            })
         }
     })
 
@@ -97,6 +101,10 @@ function displaySmallMaps(genres) {
                     let totalPopReg = csv_reg.length;
                     let genrePopulation = getGenre(genres[map_index])(csv_reg).length;
                     let ratio = genrePopulation / totalPopReg;
+
+
+                    document.getElementById(id).innerHTML='<title>' + (Math.round(ratio*1000))/10 + '%</title>';
+
                     ratio = ratio - minRatio;
                     ratio = ratio / (maxRatio - minRatio);
 
