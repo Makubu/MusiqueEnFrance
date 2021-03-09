@@ -15,8 +15,6 @@ fonciton de la data qu'on affiche sur la map.
 
 .map_image{
     float: left;
-    height: 500px;
-    width: 500px;
 }
 
 .map_image svg{

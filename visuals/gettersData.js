@@ -82,7 +82,7 @@ function getRegionName(id){
         case 'nor':
             return "Normandie";
         case 'nouaqu':
-            return "Nouvelle Calédonie";
+            return "Nouvelle-Aquitaine";
         case 'cvdl':
             return "Centre-Val de Loire";
         case 'graest':
