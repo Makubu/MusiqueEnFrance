@@ -82,6 +82,35 @@ fonciton de la data qu'on affiche sur la map.
      */
 }
 
+/*
+Tout le style est dans ce CSS à l'exeption de la coloration des région qui se trouve changée par le js en
+fonciton de la data qu'on affiche sur la map.
+ */
+
+
+.select_genre{
+    background-color: #FD999A;
+    border : none;
+    color: white;
+    appearance : none;
+    background: url(../../icons/music_note.svg) 96% / 15% no-repeat #FD999A;
+    animation: clignote 2s infinite;
+    transition-property: background;
+    transition-duration: 2s;
+    height: 30px;
+    cursor: pointer;
+    font-family: 'MarrSans', Helvetica, arial, serif;
+    padding : 4px;
+}
+
+@keyframes clignote{
+
+    50% {background: 96% / 15% no-repeat #FD999A}
+
+}
+
+
+
 
 
 
