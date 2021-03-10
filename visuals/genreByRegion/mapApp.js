@@ -29,6 +29,9 @@ const title = {
     fontSize: 15,
 };
 
+let chartLine_age;
+let chartLine_csp;
+
 paths.forEach(function (path) {
     path.addEventListener('mouseenter', function () {
         let id = this.id;
@@ -335,7 +338,7 @@ function displayGenreByRegion(genre) {
             };
 
             let ctx = document.getElementById("bar_chart_canvas_age").getContext("2d");
-            setTimeout(function(){let chartLine = new Chart(ctx, config)},200);
+            setTimeout(function(){chartLine_age = new Chart(ctx, config)},200);
         }
 
         // Remove former eventListener
@@ -353,14 +356,6 @@ function displayGenreByRegion(genre) {
 
 
 displayGenreByRegion(document.getElementById("select_genre").value);
-
-document.getElementById("select_genre").addEventListener('change', (event) => {
-    displayGenreByRegion(document.getElementById("select_genre").value);
-});
-
-
-
-
 
 
 
@@ -624,7 +619,7 @@ function displayGenreByRegion_mapAppCSP(genre) {
             };
 
             let ctx = document.getElementById("bar_chart_canvas_csp").getContext("2d");
-            setTimeout(function(){let chartLine = new Chart(ctx, config)},200);
+            chartLine_csp = new Chart(ctx, config)
         }
 
         // Remove former eventListener
@@ -638,11 +633,33 @@ function displayGenreByRegion_mapAppCSP(genre) {
         path.addEventListener('mousedown', listenerFunction_csp);
 
     })
+
 }
 
 
 displayGenreByRegion_mapAppCSP(document.getElementById("select_genre").value);
 
 document.getElementById("select_genre").addEventListener('change', (event) => {
+    displayGenreByRegion(document.getElementById("select_genre").value);
     displayGenreByRegion_mapAppCSP(document.getElementById("select_genre").value);
+
 });
+
+function updateMyGraphs(){
+    if (chartLine_age == null){
+        console.log('age is null');
+    }
+
+
+    if (chartLine_age != null){
+        console.log('age is not null');
+        chartLine_age.update();
+        chartLine_age.resize();
+        chartLine_age.update();
+    }
+    if (chartLine_csp != null){
+        chartLine_csp.update();
+        chartLine_csp.resize();
+        chartLine_csp.update();
+    }
+}

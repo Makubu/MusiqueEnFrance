@@ -40,17 +40,22 @@ h3{
 }
 
 #preztext{
-	width: 80%;
+	width: 70%;
 }
+
 
 #preztext p {
 	font-family: MarrSans;
-	font-size: 120%;
+	font-size: 110%;
 	color:#444F59;
 	transition: all 1.5s;
-	
+	text-align: justify;
+	text-justify: inter-word;
+}
+#preztext p.centered{
 	text-align: center;
 }
+
 
 button{
 	cursor: pointer;

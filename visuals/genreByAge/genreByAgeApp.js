@@ -108,6 +108,7 @@ dataP_genreByAgeApp.then(function (csv) {
                 duration: 1500,
             },
             responsive: true,
+            aspectRatio: 1,
             title: {
                 display: true,
                 text: "Pourcentage d'écoute des genres de musique par tranche d'age",

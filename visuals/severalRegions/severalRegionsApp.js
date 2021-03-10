@@ -110,29 +110,6 @@ function displaySmallMaps(genres) {
 
                     document.getElementById(id).style.fill = getD3Color(ratio);
 
-
-                    let ratio_CSPPlus = getCSPPlus(getGenre(genres[map_index])(csv_reg)).length / getCSPPlus(csv_reg).length;
-                    let ratio_CSPMoins = getCSPMoins(getGenre(genres[map_index])(csv_reg)).length / getCSPMoins(csv_reg).length;
-                    let ratio_Inactif = getCSPInactif(getGenre(genres[map_index])(csv_reg)).length / getCSPInactif(csv_reg).length;
-
-
-                    if (ratio_CSPMoins > max_ratio_reg) {
-                        max_ratio_reg = ratio_CSPMoins;
-                    }
-                    if (ratio_CSPPlus > max_ratio_reg) {
-                        max_ratio_reg = ratio_CSPPlus;
-                    }
-                    if (ratio_Inactif > max_ratio_reg) {
-                        max_ratio_reg = ratio_Inactif;
-                    }
-
-
-                    document.getElementById(id).dataset.ratio_moyen = genrePopulation / totalPopReg;
-                    document.getElementById(id).dataset.ratio_CSP_Plus = ratio_CSPPlus;
-                    document.getElementById(id).dataset.ratio_CSP_Moins = ratio_CSPMoins;
-                    document.getElementById(id).dataset.ratio_Inactif = ratio_Inactif;
-
-
                     //Legend (done after last region, i.e. index=11
                     if (index === 11) {
 
@@ -184,6 +161,11 @@ function displaySmallMaps(genres) {
                     }
                 })
             })
+        } else{
+            paths.forEach(function (path, index) {
+                const id = path.id;
+                document.getElementById(id).style.fill = '#cbcbcb';
+            });
         }
     })
 
