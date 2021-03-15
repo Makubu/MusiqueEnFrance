@@ -92,11 +92,19 @@ dataP_modeEcouteByAgeApp.then(function (csv) {
 
     let config = {
         type: 'line',
+
         data: {
             labels: AGE_modeEcouteByAgeApp,
             datasets: datasetsValue_modeEcouteByAgeApp
         },
         options: {
+            elements: {
+                line: {
+                    steppedLine: false,
+                    tension: 0,
+                }
+            },
+
             maintainAspectRatio: false,
             animation: {
                 duration: 1500,

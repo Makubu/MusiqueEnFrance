@@ -103,6 +103,13 @@ dataP_genreByAgeApp.then(function (csv) {
             datasets: datasetsValue_genreByAgeApp
         },
         options: {
+            elements: {
+                line: {
+                    steppedLine: false,
+                    tension: 0,
+                }
+            },
+
             maintainAspectRatio: false,
             animation: {
                 duration: 1500,

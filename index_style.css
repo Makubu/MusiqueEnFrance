@@ -254,22 +254,23 @@ div.charts{
 }
 
 div ul {
-	background: #FDFDFD;
+	background: #FD999A;
 	visibility: hidden;
 	position : absolute;
 	top : 0;
 	transition-duration : .5s;
 	transition-property: top;
 	list-style: none;
+	color: #FDFDFD;
 	font-family: MarrSans;
 }
 ul li{
 	margin-left: -40px;
-	background: #FDFDFD;
+	background: #FEC8C9;
 	border-style: solid;
 	border-width: thin;
-	border-color: #3E4149;
-	color: #444F59;
+	border-color: #FD999A;
+	color: #FDFDFD;
 	display: flex;
 	padding : 2px;
 	display: inline-block;
@@ -316,10 +317,11 @@ ul li{
 
 li button{
 	display: block;
-	background: #FDFDFD;
+	background: #FEC8C9;
 	border :none;
 	cursor: pointer;
 	font-family: MarrSans;
+	color: #FDFDFD;
 
 }
 
