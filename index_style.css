@@ -254,17 +254,18 @@ div.charts{
 }
 
 div ul {
-	background: #FD999A;
+	background: #FDFDFD;
 	visibility: hidden;
 	position : absolute;
 	top : 0;
 	transition-duration : .5s;
 	transition-property: top;
 	list-style: none;
+	font-family: MarrSans;
 }
 ul li{
 	margin-left: -40px;
-	background: #FEC8C9;
+	background: #FDFDFD;
 	border-style: solid;
 	border-width: thin;
 	border-color: #3E4149;
@@ -272,6 +273,7 @@ ul li{
 	display: flex;
 	padding : 2px;
 	display: inline-block;
+	font-family: MarrSans;
 	
 
 }
@@ -314,9 +316,10 @@ ul li{
 
 li button{
 	display: block;
-	background: #FEC8C9;
+	background: #FDFDFD;
 	border :none;
 	cursor: pointer;
+	font-family: MarrSans;
 
 }
 

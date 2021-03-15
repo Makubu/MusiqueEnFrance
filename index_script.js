@@ -1,13 +1,13 @@
 var insight_etudie = 0;
 var x;
 var parcourir = 0;
-var insights = ["Carte des genres (Age)", "Genres selon la classe d'age", "Multiples cartes", "Modes d'écoute", "Découverte de la musique"];
+var insights = ["Carte (Age + CSP)", "Genres selon la classe d'age", "Multiples cartes", "Modes d'écoute", "Découverte de la musique"];
 
 var id_regions = ['cvdl','hdf','bfc','cvdl']
 var index_reg_genres = [4,0,2,5];
 var id_genres = [["check_genresage_PopRock"],["check_genresage_Rap"],["check_genresage_Musique du monde","check_genresage_Reggae","check_genresage_Soul"]];
 var id_multicartes = [[1,5,9,13],[7,11,0,0],[4,11,1,13]]
-var id_modes = [["check_ecoute_CD","check_ecoute_Vinyle"],["check_ecoute_CD","check_ecoute_Vinyle","check_ecoute_Radio","check_ecoute_Site internet","check_ecoute_Concert"],["check_ecoute_Concert"]];
+var id_modes = [["check_ecoute_CD","check_ecoute_Vinyle"],["check_ecoute_CD","check_ecoute_Vinyle","check_ecoute_Radio","check_ecoute_Site internet","check_ecoute_Concert"],["check_ecoute_CD","check_ecoute_Vinyle","check_ecoute_Radio","check_ecoute_Site internet","check_ecoute_Concert","check_ecoute_Chaine TV","check_ecoute_Application"]];
 var id_decouverte = [["check_decouverte_15-24"],["check_decouverte_15-24","check_decouverte_25-34","check_decouverte_35-49","check_decouverte_50-64","check_decouverte_65+"],["check_decouverte_15-24","check_decouverte_25-34","check_decouverte_35-49"]];
 
 const texts = [
