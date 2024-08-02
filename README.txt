@@ -1,1 +1,1 @@
-Glitch project at https://hadopi-musique.glitch.me/
+https://makubu.github.io/MusiqueEnFrance/
